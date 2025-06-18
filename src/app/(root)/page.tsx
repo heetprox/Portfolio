@@ -1,6 +1,7 @@
 import { LanyardResponse } from "react-use-lanyard";
 import Home from "@/components/Home";
 import api from "../../../lib/api";
+import Projects from "@/components/Projects";
 
 export default async function Page() {
 
@@ -12,5 +13,10 @@ export default async function Page() {
     );
 
 
-  return <Home activity={activity.data} />;
+  return (
+    <>
+      <Home activity={activity.data} />
+      <Projects />
+    </>
+  );
 }

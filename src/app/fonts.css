@@ -63,13 +63,14 @@
 }
 
 @font-face {
-    font-family: "monospace";
-    src: url("/fonts/monospace.ttf") format("truetype");
+    font-family: "IkiMono-Light";
+    src: url("/fonts/IkiMono-Light.otf") format("opentype");
     font-style: normal;
 }
 
 .mono {
-    font-family: "monospace", sans-serif;
+    font-family: "IkiMono-Light", sans-serif;
+    letter-spacing: 0.05em;
 }
 .neue {
     font-family: "NeueHaasUnicaPro-Medium", sans-serif;
