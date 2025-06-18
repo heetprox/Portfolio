@@ -26,6 +26,16 @@
     font-family: 'Berthold-akzidenz-grotesk-be-regular';
     src: url('/fonts/Berthold-akzidenz-grotesk-be-regular.ttf') format('truetype');
   }
+
+  @font-face {
+    font-family: "SF-Pro-Display-Regular";
+    src: url("/fonts/SF-Pro-Display-Regular.otf") format("opentype");
+    font-style: normal;
+  }
+  
+  .apple {
+    font-family: "SF-Pro-Display-Regular", sans-serif;
+  }
   .normal-font{
     font-family: 'Berthold-akzidenz-grotesk-be-regular', sans-serif;
   }
