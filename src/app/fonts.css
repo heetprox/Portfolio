@@ -1,0 +1,56 @@
+@font-face {
+    font-family: 'DrukWideLCGHeavy';
+    src: url('/fonts/DrukWideLCGHeavy.ttf') format('truetype');
+  }
+  
+  @font-face {
+    font-family: 'DrukWideLCGSuper';
+    src: url('/fonts/DrukWideLCGSuper.ttf') format('truetype');
+  }
+  
+  @font-face {
+    font-family: 'DrukWideLCGBold';
+    src: url('/fonts/DrukWideLCGBold.ttf') format('truetype');
+  }
+  
+  @font-face {
+    font-family: 'DrukWideLCGMedium';
+    src: url('/fonts/DrukWideLCGMedium.ttf') format('truetype');
+  }
+  
+  @font-face {
+    font-family: 'Berthold-akzidenz-grotesk-be-medium';
+    src: url('/fonts/Berthold-akzidenz-grotesk-be-medium.ttf') format('truetype');
+  }
+  @font-face {
+    font-family: 'Berthold-akzidenz-grotesk-be-regular';
+    src: url('/fonts/Berthold-akzidenz-grotesk-be-regular.ttf') format('truetype');
+  }
+  .normal-font{
+    font-family: 'Berthold-akzidenz-grotesk-be-regular', sans-serif;
+  }
+  .medium-font{
+    font-family: 'Berthold-akzidenz-grotesk-be-medium', sans-serif;
+  }
+  
+  .druk-bold {
+    font-family: 'DrukWideLCGBold', sans-serif;
+  }
+  .druk-medium {
+    font-family: 'DrukWideLCGMedium', sans-serif;
+  transform: scaleY(1.1);
+  
+  }
+  
+  .druk-so {
+    font-family: 'DrukWideLCGMedium', sans-serif;
+  
+  }
+  
+  .druk{
+    font-family: 'DrukWideLCGHeavy', sans-serif;
+  }
+  .druk-super{
+    font-family: 'DrukWideLCGSuper', sans-serif;
+  }
+  
