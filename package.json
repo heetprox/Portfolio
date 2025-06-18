@@ -9,12 +9,15 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "clsx": "^2.1.1",
+    "framer-motion": "^12.18.1",
     "next": "15.3.3",
     "next-view-transitions": "^0.3.4",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-use-lanyard": "^0.3.4",
-    "speedcast-api": "^1.0.0"
+    "speedcast-api": "^1.0.0",
+    "tailwind-merge": "^3.3.1"
   },
   "devDependencies": {
     "typescript": "^5",

@@ -4,8 +4,8 @@ import type { Metadata } from 'next';
 import { ViewTransitions } from 'next-view-transitions';
 
 export const metadata: Metadata = {
-  title: 'Joseph Zhang - Interaction Designer',
-  description: "Portfolio of Joseph Zhang, Interaction Designer based in New York.",
+  title: 'Heet Vavadiya - Full-Stack Developer',
+  description: "Portfolio of Heet Vavadiya, Full-Stack Developer based in Ahmedabad, In.",
 };
 
 export default function RootLayout({
