@@ -15,7 +15,7 @@ export default function RootLayout({
 }) {
   return (
     <ViewTransitions>
-      <html lang="en" className="scrollbar-none">
+      <html lang="en" className="scrollbar-none apple">
         <body className="bg-black text-white scrollbar-none overflow-y-auto">
           {children}
         </body>

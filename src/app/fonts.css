@@ -1,66 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&display=swap');
+
 @font-face {
     font-family: 'DrukWideLCGHeavy';
     src: url('/fonts/DrukWideLCGHeavy.ttf') format('truetype');
-  }
-  
-  @font-face {
+}
+
+@font-face {
     font-family: 'DrukWideLCGSuper';
     src: url('/fonts/DrukWideLCGSuper.ttf') format('truetype');
-  }
-  
-  @font-face {
+}
+
+@font-face {
     font-family: 'DrukWideLCGBold';
     src: url('/fonts/DrukWideLCGBold.ttf') format('truetype');
-  }
-  
-  @font-face {
+}
+
+@font-face {
     font-family: 'DrukWideLCGMedium';
     src: url('/fonts/DrukWideLCGMedium.ttf') format('truetype');
-  }
-  
-  @font-face {
+}
+
+@font-face {
     font-family: 'Berthold-akzidenz-grotesk-be-medium';
     src: url('/fonts/Berthold-akzidenz-grotesk-be-medium.ttf') format('truetype');
-  }
-  @font-face {
+}
+
+@font-face {
     font-family: 'Berthold-akzidenz-grotesk-be-regular';
     src: url('/fonts/Berthold-akzidenz-grotesk-be-regular.ttf') format('truetype');
-  }
+}
 
-  @font-face {
+@font-face {
     font-family: "SF-Pro-Display-Regular";
     src: url("/fonts/SF-Pro-Display-Regular.otf") format("opentype");
     font-style: normal;
-  }
-  
-  .apple {
+}
+
+.apple {
     font-family: "SF-Pro-Display-Regular", sans-serif;
-  }
-  .normal-font{
+}
+
+.normal-font {
     font-family: 'Berthold-akzidenz-grotesk-be-regular', sans-serif;
-  }
-  .medium-font{
+}
+
+.medium-font {
     font-family: 'Berthold-akzidenz-grotesk-be-medium', sans-serif;
-  }
-  
-  .druk-bold {
+}
+
+.druk-bold {
     font-family: 'DrukWideLCGBold', sans-serif;
-  }
-  .druk-medium {
+}
+
+.druk-medium {
     font-family: 'DrukWideLCGMedium', sans-serif;
-  transform: scaleY(1.1);
-  
-  }
-  
-  .druk-so {
+    transform: scaleY(1.1);
+
+}
+
+.druk-so {
     font-family: 'DrukWideLCGMedium', sans-serif;
-  
-  }
-  
-  .druk{
+
+}
+
+
+.ibm {
+    font-family: "IBM Plex Sans", sans-serif;
+    font-style: normal;
+}
+
+.druk {
     font-family: 'DrukWideLCGHeavy', sans-serif;
-  }
-  .druk-super{
+}
+
+.druk-super {
     font-family: 'DrukWideLCGSuper', sans-serif;
-  }
-  
+}

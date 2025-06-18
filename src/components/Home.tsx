@@ -9,7 +9,6 @@ const Home = ({ activity }: { activity: LanyardResponse | undefined }) =>  {
       
       <div className="container mx-auto px-4 py-10">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {/* About Section */}
           <div className="col-span-1">
             <h3 className="uppercase text-sm font-bold mb-4 text-gray-400">About</h3>
             <p className="text-lg mb-4">
@@ -21,7 +20,6 @@ const Home = ({ activity }: { activity: LanyardResponse | undefined }) =>  {
             </p>
           </div>
           
-          {/* Team Section */}
           <div className="col-span-1">
             <h3 className="uppercase text-sm font-bold mb-4 text-gray-400">Team</h3>
             
@@ -50,7 +48,6 @@ const Home = ({ activity }: { activity: LanyardResponse | undefined }) =>  {
             </div>
           </div>
           
-          {/* Description Section */}
           <div className="col-span-1">
             <h3 className="uppercase text-sm font-bold mb-4 text-gray-400">Description</h3>
             
