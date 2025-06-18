@@ -24,10 +24,12 @@ export interface Project {
           id: 12,
           type: 'video',
           title: 'Vaayu jewels',
+          subtitle: 'E-COMMERCE JEWELRY WEBSITE',
           image: '/projects/vaayujewelsv.mp4',
           textColor: '#333333',
           logoImage: true
         },
+      
       {
           id: 11,
           type: 'image',
@@ -42,6 +44,15 @@ export interface Project {
       title: 'ANIME',
       subtitle: 'MOBILE APP',
       image: '/projects/1.png',
+      textColor: '#333333',
+      logoImage: true
+    },
+    {
+      id: 13,
+      type: 'image',
+      title: 'SpeedCast',
+      subtitle: 'better api client than axios.',
+      image: '/projects/speed.svg',
       textColor: '#333333',
       logoImage: true
     },
