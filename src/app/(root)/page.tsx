@@ -1,6 +1,6 @@
-import api from "../../../lib/api";
 import { LanyardResponse } from "react-use-lanyard";
 import Home from "@/components/Home";
+import api from "../../../lib/api";
 
 export default async function Page() {
   const activity = await api.get<LanyardResponse | undefined>(
