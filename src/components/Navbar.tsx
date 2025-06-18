@@ -10,15 +10,15 @@ const Navbar = () => {
         >
             <div className="flex w-1/2">
                 <div className="text-left">
-                    <h1 className=" tracking-tight">Joseph Zhang</h1>
+                    <h1 className=" tracking-tight">Heet Vavadiya</h1>
                 </div>
             </div>
             <div className="flex w-1/2 justify-between">
-                <div className="text-left w-[30%]">
+                <div className="text-left w-[35%]">
                     <h2 className=" ">Full-Stack Developer</h2>
                 </div>
-                <div className="text-left w-[70%]">
-                    <p className=" ">Ahmedabad, IN</p>
+                <div className="text-left w-[65%]">
+                    <p className=" ">Ahmedabad, In</p>
                 </div>
             </div>
         </nav>
