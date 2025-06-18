@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
 
 @font-face {
     font-family: 'DrukWideLCGHeavy';
@@ -36,8 +37,44 @@
     font-style: normal;
 }
 
+
+@font-face {
+    font-family: "SF-Pro-Display-Medium";
+    src: url("/fonts/SF-Pro-Display-Medium.otf") format("opentype");
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "NeueHaasUnicaPro-Bold";
+    src: url("/fonts/NeueHaasUnicaPro-Bold.ttf") format("truetype");
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "NeueHaasUnicaPro-Medium";
+    src: url("/fonts/NeueHaasUnicaPro-Medium.ttf") format("truetype");
+    font-style: normal;
+}
+
+.neue {
+    font-family: "NeueHaasUnicaPro-Medium", sans-serif;
+}
+.neue-bold {
+    font-family: "NeueHaasUnicaPro-Bold", sans-serif;
+}
+
+
+.inter {
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+  }
+
 .apple {
     font-family: "SF-Pro-Display-Regular", sans-serif;
+}
+
+.apple-medium {
+    font-family: "SF-Pro-Display-Medium", sans-serif;
 }
 
 .normal-font {
