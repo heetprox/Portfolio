@@ -1,6 +1,7 @@
 import React from 'react'
 import { LanyardResponse } from 'react-use-lanyard'
 import { teamData } from '@/data'   
+import ActivityCard from './ActivityCard';
 
 const insertSuperscripts = (description: string, superscripts?: { text: string; position: number }[]) => {
   if (!superscripts || superscripts.length === 0) return description;
@@ -66,6 +67,7 @@ const Home = ({ activity }: { activity: LanyardResponse | undefined }) => {
             <p className="mb-4 w-[65%] leading-tight" >
                Jo (He/Him) designs interfaces. He thrives in complex, ambiguous problem spaces focused around interactive media, digital tooling, and multimodal interaction. He studied Communication Design↗ and Human-Computer Interaction↗ at Carnegie Mellon University, an experience he holds fondly and will cherish for the rest of his life. If you have an interesting idea, please get in touch↗.
             </p>
+            <ActivityCard userId="1118212847613247558" initialData={activity} />
           </div>
           
           <div className="w-[50%]">
