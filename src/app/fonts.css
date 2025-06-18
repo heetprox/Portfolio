@@ -45,6 +45,12 @@
 }
 
 @font-face {
+    font-family: "SF-Pro-Display-Bold";
+    src: url("/fonts/SF-Pro-Display-Bold.otf") format("opentype");
+    font-style: normal;
+}
+
+@font-face {
     font-family: "NeueHaasUnicaPro-Bold";
     src: url("/fonts/NeueHaasUnicaPro-Bold.ttf") format("truetype");
     font-style: normal;
@@ -56,6 +62,15 @@
     font-style: normal;
 }
 
+@font-face {
+    font-family: "monospace";
+    src: url("/fonts/monospace.ttf") format("truetype");
+    font-style: normal;
+}
+
+.mono {
+    font-family: "monospace", sans-serif;
+}
 .neue {
     font-family: "NeueHaasUnicaPro-Medium", sans-serif;
 }
@@ -75,6 +90,10 @@
 
 .apple-medium {
     font-family: "SF-Pro-Display-Medium", sans-serif;
+}
+
+.apple-bold {
+    font-family: "SF-Pro-Display-Bold", sans-serif;
 }
 
 .normal-font {
