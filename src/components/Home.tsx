@@ -50,25 +50,31 @@ const insertLinks = (text: string, links: { text: string; position: number }[]) 
 const Home = ({ activity }: { activity: LanyardResponse | undefined }) => {
   return (
     <div className="min-h-[40vh] bg-[#131313] text-white pt-16">
-      <div className="mx-auto px-4 py-10"
+      <div className="mx-auto px-4 py-10 flex "
         style={{
-          fontSize: "clamp(0.8rem, 0.85vw, 240rem)",
+          fontSize: "clamp(0.85rem, 0.9vw, 240rem)",
           padding: "clamp(0.75rem, 0.75vw, 240rem) clamp(0.5rem, 0.75vw, 240rem)",
           marginTop: "clamp(0.75rem, 0.75vw, 240rem)",
         }}>
-        <div className="w-full flex">
-          <div className="flex flex-col w-[50%]"
+
+        <div className="w-full flex flex-col md:flex-row
+        "
+        style={{
+          gap: "clamp(1rem, 1vw, 240rem)",
+        }}
+        >
+          <div className="flex flex-col md:w-[50%] w-full"
           style={{
             gap: "clamp(0.5rem, 1vw, 240rem)",
           }}
           >
             <h3
               style={{
-                fontSize: "clamp(0.5rem, 0.7vw, 240rem)",
+               fontSize: "clamp(0.75rem, 0.7vw, 240rem)",
            
               }}
               className="uppercase mono font-medium mb-4 text-white/40">About</h3>
-            <p className="mb-4 w-[65%] leading-tight" >
+            <p className="mb-4 md:w-[70%] w-full leading-tight" >
               Jo (He/Him) designs interfaces. He thrives in complex, ambiguous problem spaces focused around interactive media, digital tooling, and multimodal interaction. He studied Communication Design↗ and Human-Computer Interaction↗ at Carnegie Mellon University, an experience he holds fondly and will cherish for the rest of his life. If you have an interesting idea, please get in touch↗.
             </p>
            
@@ -77,12 +83,12 @@ const Home = ({ activity }: { activity: LanyardResponse | undefined }) => {
             </div>
           </div>
 
-          <div className="w-[50%]">
+          <div className="md:w-[50%] w-full">
             <div style={{ display: "flex", width: "100%" }}>
               <div style={{ width: "35%" }}>
                 <h3
                   style={{
-                    fontSize: "clamp(0.5rem, 0.7vw, 240rem)",
+                   fontSize: "clamp(0.75rem, 0.7vw, 240rem)",
                     paddingBottom: "clamp(0.5rem, 1vw, 240rem)",
                   }}
                   className="uppercase mono tracking-wide font-medium mb-4 text-white/40">TEAM</h3>
@@ -91,7 +97,7 @@ const Home = ({ activity }: { activity: LanyardResponse | undefined }) => {
               <div style={{ width: "65%" }}>
                 <h3
                   style={{
-                    fontSize: "clamp(0.5rem, 0.7vw, 240rem)",
+                   fontSize: "clamp(0.75rem, 0.7vw, 240rem)",
                     paddingBottom: "clamp(0.5rem, 0.75vw, 240rem)",
                   }}
                   className="uppercase mono tracking-wide font-medium mb-4 text-white/40">DESCRIPTION</h3>
