@@ -63,8 +63,8 @@
 }
 
 @font-face {
-    font-family: "IkiMono-Light";
-    src: url("/fonts/IkiMono-Light.otf") format("opentype");
+    font-family: "InputMonoNarrow-Regular";
+    src: url("/fonts/InputMonoNarrow-Regular.ttf") format("truetype");
     font-style: normal;
 }
 
@@ -79,8 +79,8 @@
 }
 
 .mono {
-    font-family: "IkiMono-Light", sans-serif;
-    letter-spacing: 0.05em;
+    font-family: "InputMonoNarrow-Regular", sans-serif;
+    letter-spacing: 0.09em;
 }
 .neue {
     font-family: "NeueHaasUnicaPro-Medium", sans-serif;

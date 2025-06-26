@@ -64,10 +64,10 @@ const Home = ({ activity }: { activity: LanyardResponse | undefined }) => {
           >
             <h3
               style={{
-                fontSize: "clamp(0.5rem, 0.75vw, 240rem)",
+                fontSize: "clamp(0.5rem, 0.7vw, 240rem)",
            
               }}
-              className="uppercase mono tracking-wide font-medium mb-4 text-white/40">About</h3>
+              className="uppercase mono font-medium mb-4 text-white/40">About</h3>
             <p className="mb-4 w-[65%] leading-tight" >
               Jo (He/Him) designs interfaces. He thrives in complex, ambiguous problem spaces focused around interactive media, digital tooling, and multimodal interaction. He studied Communication Design↗ and Human-Computer Interaction↗ at Carnegie Mellon University, an experience he holds fondly and will cherish for the rest of his life. If you have an interesting idea, please get in touch↗.
             </p>
@@ -82,7 +82,7 @@ const Home = ({ activity }: { activity: LanyardResponse | undefined }) => {
               <div style={{ width: "35%" }}>
                 <h3
                   style={{
-                    fontSize: "clamp(0.5rem, 0.75vw, 240rem)",
+                    fontSize: "clamp(0.5rem, 0.7vw, 240rem)",
                     paddingBottom: "clamp(0.5rem, 1vw, 240rem)",
                   }}
                   className="uppercase mono tracking-wide font-medium mb-4 text-white/40">TEAM</h3>
@@ -91,7 +91,7 @@ const Home = ({ activity }: { activity: LanyardResponse | undefined }) => {
               <div style={{ width: "65%" }}>
                 <h3
                   style={{
-                    fontSize: "clamp(0.5rem, 0.75vw, 240rem)",
+                    fontSize: "clamp(0.5rem, 0.7vw, 240rem)",
                     paddingBottom: "clamp(0.5rem, 0.75vw, 240rem)",
                   }}
                   className="uppercase mono tracking-wide font-medium mb-4 text-white/40">DESCRIPTION</h3>
