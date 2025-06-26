@@ -16,7 +16,7 @@ export default function RootLayout({
   return (
     <ViewTransitions>
       <html lang="en" className="scrollbar-none medium-font ">
-        <body className="bg-black text-white scrollbar-none overflow-y-auto">
+        <body className="bg-[#131313] text-white scrollbar-none overflow-y-auto">
           {children}
         </body>
       </html>

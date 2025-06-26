@@ -49,7 +49,7 @@ const insertLinks = (text: string, links: { text: string; position: number }[]) 
 
 const Home = ({ activity }: { activity: LanyardResponse | undefined }) => {
   return (
-    <div className="min-h-[40vh] bg-black text-white pt-16">
+    <div className="min-h-[40vh] bg-[#131313] text-white pt-16">
       <div className="mx-auto px-4 py-10"
         style={{
           fontSize: "clamp(0.8rem, 0.85vw, 240rem)",

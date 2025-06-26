@@ -16,7 +16,7 @@ export interface TeamEntry {
     },
     {
       company: "Agrofix",
-      period: "2025 - 2025",
+      period: "2025",
       description: "First full-time design hire as full-stack intern. i have to build diffrent-diffrent full-stackproduct."
     },
    

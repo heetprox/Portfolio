@@ -68,6 +68,16 @@
     font-style: normal;
 }
 
+@font-face {
+    font-family: "OffBit-101Bold";
+    src: url("/fonts/OffBit-101Bold.ttf") format("truetype");
+    font-style: normal;
+}
+
+.off{
+    font-family: "OffBit-101Bold", sans-serif;
+}
+
 .mono {
     font-family: "IkiMono-Light", sans-serif;
     letter-spacing: 0.05em;
