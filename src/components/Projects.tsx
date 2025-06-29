@@ -24,7 +24,7 @@ const Projects = () => {
   return (
     <div className="w-full page-work"
       style={{
-        padding: "clamp(0.75rem, 0.75vw, 240rem) clamp(0.5rem, 0.75vw, 240rem)",
+        padding: "clamp(0.75rem, 0.75vw, 240rem) clamp(0.75rem, 0.75vw, 240rem)",
       }}
     >
       <div

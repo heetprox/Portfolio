@@ -5,13 +5,12 @@ import Projects from "@/components/Projects";
 
 export default async function Page() {
 
-    // const activity = await api.get<LanyardResponse | undefined>(
-    //   `https://api.lanyard.rest/v1/users/1118212847613247558`,
-    //   {
-    //     cache: false,
-    //   }
-    // );
-  const activity : any = []
+    const activity = await api.get<LanyardResponse | undefined>(
+      `https://api.lanyard.rest/v1/users/1118212847613247558`,
+      {
+        cache: false,
+      }
+    );
 
   return (
     <>

@@ -12,7 +12,7 @@ const Navbar = () => {
         <nav className="sticky top-0 left-0 border-b bg-[#131313] border-white/10 w-full flex justify-between items-center  text-white z-50"
             style={{
                 fontSize: "clamp(0.8rem, 0.9vw, 240rem)",
-                padding: "clamp(0.75rem, 0.75vw, 240rem) clamp(0.5rem, 0.75vw, 240rem)",
+                padding: "clamp(0.75rem, 0.75vw, 240rem) clamp(0.75rem, 0.75vw, 240rem)",
             }}
         >
             <div className="flex w-[35%] md:w-1/2">

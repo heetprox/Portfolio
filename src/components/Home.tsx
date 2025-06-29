@@ -53,7 +53,7 @@ const Home = ({ activity }: { activity: LanyardResponse | undefined }) => {
       <div className="mx-auto px-4 py-10 flex "
         style={{
           fontSize: "clamp(0.85rem, 0.9vw, 240rem)",
-          padding: "clamp(0.75rem, 0.75vw, 240rem) clamp(0.5rem, 0.75vw, 240rem)",
+          padding: "clamp(0.75rem, 0.75vw, 240rem) clamp(0.75rem, 0.75vw, 240rem)",
           marginTop: "clamp(0.75rem, 0.75vw, 240rem)",
         }}>
 
