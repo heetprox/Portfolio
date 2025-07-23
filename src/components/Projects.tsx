@@ -1,6 +1,7 @@
 import React from 'react'
 import { projectData, Project } from '@/data/Projcets'
 import Link from 'next/link';
+import Image from 'next/image';
 
 
 
@@ -69,7 +70,9 @@ const Projects = () => {
                         className={`w-full h-full object-cover ${project.logoImage ? 'p-4 object-contain' : ''}`}
                       />
                     ) : (
-                      <img
+                      <Image
+                        width={400}
+                        height={400}
                         src={project.image}
                         alt={project.title}
                         className={`w-full h-full object-cover ${project.logoImage ? 'p-4 object-contain' : ''}`}
