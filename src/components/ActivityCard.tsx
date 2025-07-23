@@ -4,7 +4,6 @@ import { motion, Variants } from "framer-motion";
 import { itemVariants } from "@/lib/utils";
 import OptimizedImage from "./Image";
 
-// Helper function to get the correct image URL
 const getActivityImageUrl = (activity: any) => {
   if (!activity?.assets?.large_image) {
     return "https://i.pinimg.com/736x/c0/0f/07/c00f07cdae11db49e00f55b011ccc4f3.jpg";
@@ -12,15 +11,12 @@ const getActivityImageUrl = (activity: any) => {
 
   const largeImage = activity.assets.large_image;
 
-  // Handle Spotify images - each song has unique album artwork
   if (largeImage.startsWith("spotify:")) {
     const spotifyId = largeImage.replace("spotify:", "");
     return `https://i.scdn.co/image/${spotifyId}`;
   }
 
-  // Handle external images (mp:external format) - for apps like VS Code, etc.
   if (largeImage.startsWith("mp:external")) {
-    // Handle encoded URLs
     if (largeImage.includes("%3Furl%3Dhttps")) {
       const match = largeImage.match(/%3Furl%3D(https%3A[^&]*)/);
       if (match) {
@@ -28,19 +24,16 @@ const getActivityImageUrl = (activity: any) => {
       }
     }
     
-    // Handle standard mp:external format: mp:external/{hash}/https/{url}
     const httpsIndex = largeImage.indexOf("/https/");
     if (httpsIndex !== -1) {
       return `https://${largeImage.substring(httpsIndex + 7)}`;
     }
   }
 
-  // Handle Discord application assets (for games like Valorant, etc.)
   if (activity.application_id && largeImage) {
     return `https://cdn.discordapp.com/app-assets/${activity.application_id}/${largeImage}.png`;
   }
 
-  // Fallback
   return "https://i.pinimg.com/736x/c0/0f/07/c00f07cdae11db49e00f55b011ccc4f3.jpg";
 };
 

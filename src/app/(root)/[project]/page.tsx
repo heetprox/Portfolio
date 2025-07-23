@@ -1,9 +1,9 @@
 'use client'
 
-import { Project, projectData, ProjectPageData, projectPageData } from '@/data/Projcets';
+import { ProjectPageData, projectPageData } from '@/data/Projcets';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useParams, usePathname } from 'next/navigation'
+import { useParams } from 'next/navigation'
 import React from 'react'
 
 const page = () => {
