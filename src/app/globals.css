@@ -1,15 +1,5 @@
 @import "tailwindcss";
 
-
-:root {
-  --pink: #FFC6C6;
-  --main: #000000;
-  --blue: #4801FF;
-  --red: #F93535;
-  --black: #000000;
-}
-
-
 *{
   /* border: 1px solid red; */
   margin: 0;
@@ -20,18 +10,5 @@
 ::selection {
   background-color: black; 
   color: #FDE037; 
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground: #ededed;
-  }
 }
 
