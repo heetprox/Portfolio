@@ -21,7 +21,7 @@ const Navbar = () => {
                 </Link>
             </div>
             <div className="flex w-[65%] md:w-1/2 md:justify-start justify-between">
-                <div className="text-left md:w-[35%]">
+                <div className="text-left w-[70%] md:w-[35%] items-center flex">
                     <h2 className=" ">Full-Stack Developer</h2>
                 </div>
                 <div className="md:flex hidden text-left w-[55%]">
