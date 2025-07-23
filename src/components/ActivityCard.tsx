@@ -100,7 +100,10 @@ export default function ActivityCard({
               />
             </div>
             <div className="flex flex-col justify-between">
-              <h2 className="">{activity.name}</h2>
+              
+              <h2 className="">{activity.name === "Spotify" && "Listening to "}
+              {activity.name === "Code" && "Doing "}
+                 {activity.name}</h2>
               <div className="flex flex-col"
                 style={{
                   fontSize: "clamp(0.8rem, 0.5vw, 240rem)",

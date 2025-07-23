@@ -20,7 +20,7 @@ export const projectData: Project[] = [
     title: 'Trackyou',
     subtitle: 'Track your coding activity.',
     link: '',
-    image: '/projects/trackyou.png',
+    image: '/preview/trackyou.png',
     textColor: '#333333',
     locked: true,
     logoImage: true
@@ -31,7 +31,7 @@ export const projectData: Project[] = [
     title: 'Vaayu jewels',
     link: '/vaayu-jewels',
     subtitle: 'E-COMMERCE JEWELRY WEBSITE',
-    image: '/projects/vaayujewelsv.mp4',
+    image: '/preview/vaayujewelsv.mp4',
     textColor: '#333333',
     logoImage: true
   },
@@ -42,7 +42,7 @@ export const projectData: Project[] = [
     title: 'Paycrypt',
     subtitle: 'your bank solution.',
     link: '/paycrypt',
-    image: '/projects/paycryot.png',
+    image: '/preview/paycryot.png',
     textColor: '#333333',
     logoImage: true
   },
@@ -52,7 +52,7 @@ export const projectData: Project[] = [
     title: 'Sunflower',
     subtitle: 'find your music buddy.',
     link: '',
-    image: '/projects/sunflower.jpg',
+    image: '/preview/sunflower.jpg',
     textColor: '#333333',
     logoImage: true,
     locked: true
@@ -64,7 +64,7 @@ export const projectData: Project[] = [
     subtitle: "A Coffee shop NFTs",
     link: 'vaayu-jewels',
 
-    image: '/projects/1.png',
+    image: '/preview/kafinao.png',
     textColor: '#333333',
     logoImage: true
   },
@@ -75,7 +75,7 @@ export const projectData: Project[] = [
     subtitle: 'better api client than axios.',
     link: 'vaayu-jewels',
 
-    image: '/projects/speedcast.mp4',
+    image: '/preview/speedcast.mp4',
     textColor: '#333333',
     logoImage: true
   },
