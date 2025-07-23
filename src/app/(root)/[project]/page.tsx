@@ -42,7 +42,7 @@ const page = () => {
                         alignSelf: 'flex-start'
                     }}
                 >
-                    <div className="text-white off uppercase leading-none"
+                    <div className="text-white off uppercase tracking-wide leading-none"
                         style={{
                             fontSize: "clamp(1.5rem, 1.95vw, 240rem)",
                         }}
