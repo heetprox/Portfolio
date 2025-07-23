@@ -5,22 +5,22 @@ import React, { useState, useEffect, useRef } from 'react'
 const socials = [
   {
     name: "Twitter",
-    link: "https://www.twitter.com/vaayu_jewels/",
+    link: "https://www.twitter.com/BlueCopper_/",
     icon: "twitter"
   },
   {
     name: "Instagram",
-    link: "https://www.instagram.com/vaayu_jewels/",
+    link: "https://www.instagram.com/heetprox/",
     icon: "instagram"
   },
   {
     name: "LinkedIn",
-    link: "https://www.linkedin.com/in/vaayu-jewels/",
+    link: "https://www.linkedin.com/in/heetvavadiya/",
     icon: "linkedin"
   },
   {
     name: "Github",
-    link: "https://www.github.com/vaayu_jewels/",
+    link: "https://www.github.com/heetprox/",
     icon: "github"
   },
 ]
