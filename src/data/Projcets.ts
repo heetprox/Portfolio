@@ -53,7 +53,7 @@ export const projectData: Project[] = [
     subtitle: 'find your music buddy.',
     link: 'vaayu-jewels',
 
-    image: '/projects/sunflower.avif',
+    image: '/projects/sunflower.jpg',
     textColor: '#333333',
     logoImage: true,
     locked: true
@@ -71,12 +71,12 @@ export const projectData: Project[] = [
   },
   {
     id: 13,
-    type: 'image',
+    type: 'video',
     title: 'SpeedCast',
     subtitle: 'better api client than axios.',
     link: 'vaayu-jewels',
 
-    image: '/projects/speed.svg',
+    image: '/projects/speedcast.mp4',
     textColor: '#333333',
     logoImage: true
   },
