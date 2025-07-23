@@ -69,8 +69,7 @@ const Footer = () => {
         }}
         >
 
-          <div className=" flex h-fit md:w-[50%]
-           items-center"
+          <div className=" flex h-fit md:w-[50%] items-center"
             style={{
               fontSize: "clamp(0.75rem, 0.5vw, 240rem)"
             }}
