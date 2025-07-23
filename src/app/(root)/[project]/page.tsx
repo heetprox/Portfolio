@@ -20,7 +20,7 @@ const page = () => {
             {/* {data.map((project, index) => ( */}
             <div className="flex w-full bg-[#131313] max-h-[90vh] h-auto    ">
                 <Image
-                    src={data[0].data[0].image}
+                    src={data[0].poster}
                     className='w-full max-h-[90vh] h-auto object-cover'
                     alt="yo"
                     width={100}
