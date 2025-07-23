@@ -17,10 +17,10 @@ export const projectData: Project[] = [
   {
     id: 14,
     type: 'image',
-    title: 'spine',
-    subtitle: 'a music based dating app.',
+    title: 'Trackyou',
+    subtitle: 'Track your coding activity.',
     link: '',
-    image: '/projects/14.png',
+    image: '/projects/trackyou.png',
     textColor: '#333333',
     locked: true,
     logoImage: true
@@ -42,20 +42,21 @@ export const projectData: Project[] = [
     title: 'Paycrypt',
     subtitle: 'your bank solution.',
     link: '/paycrypt',
-    image: '/projects/14.png',
+    image: '/projects/paycryot.png',
     textColor: '#333333',
     logoImage: true
   },
   {
     id: 11,
     type: 'image',
-    title: 'Amouris',
-    subtitle: 'A design studio.',
+    title: 'Sunflower',
+    subtitle: 'find your music buddy.',
     link: 'vaayu-jewels',
 
-    image: '/projects/11.png',
+    image: '/projects/sunflower.avif',
     textColor: '#333333',
-    logoImage: true
+    logoImage: true,
+    locked: true
   },
   {
     id: 1,
@@ -79,46 +80,4 @@ export const projectData: Project[] = [
     textColor: '#333333',
     logoImage: true
   },
-  {
-    id: 1,
-    type: 'image',
-    title: 'Portfolio',
-    subtitle: "Designer Deep Patel's Portfolio.",
-    link: 'vaayu-jewels',
-
-    image: '/projects/1.png',
-    textColor: '#333333',
-    logoImage: true
-  },
-  {
-    id: 2,
-    type: 'image',
-    title: 'Payzepp',
-    link: 'payzepp',
-    subtitle: 'A try to build payment gateway in typescript. (succeed)',
-    image: '/projects/2.png',
-    textColor: '#ffffff',
-    logoImage: true
-  },
-  {
-    id: 3,
-    type: 'image',
-    title: 'Vaayu jewels',
-    subtitle: 'E-COMMERCE JEWELRY WEBSITE',
-    link: 'vaayu-jewels',
-
-    image: '/projects/3.png',
-    textColor: '#333333'
-  },
-  {
-    id: 6,
-    type: 'image',
-
-    link: 'Swapper',
-    subtitle: 'a uniswap clone.',
-    title: 'SKIFF',
-    image: '/projects/6.png',
-    textColor: '#333333',
-    logoImage: true
-  }
-];
+]
