@@ -1,5 +1,29 @@
 'use client'
+import Link from 'next/link'
 import React, { useState, useEffect, useRef } from 'react'
+
+const socials = [
+  {
+    name: "Twitter",
+    link: "https://www.twitter.com/vaayu_jewels/",
+    icon: "twitter"
+  },
+  {
+    name: "Instagram",
+    link: "https://www.instagram.com/vaayu_jewels/",
+    icon: "instagram"
+  },
+  {
+    name: "LinkedIn",
+    link: "https://www.linkedin.com/in/vaayu-jewels/",
+    icon: "linkedin"
+  },
+  {
+    name: "Github",
+    link: "https://www.github.com/vaayu_jewels/",
+    icon: "github"
+  },
+]
 
 const Footer = () => {
   const [position, setPosition] = useState<number>(0)
@@ -7,6 +31,8 @@ const Footer = () => {
   const intervalRef = useRef<NodeJS.Timeout | null>(null)
 
   const baseText = "CREATIVE_DEVELOPER_▞▚▞▚▞▚▞_NEXT.JS_VERCEL_▞▚▞▚▞▚▞_INPUT_MONO_▞▚▞▚▞▚▞_Copyright_2025_▞▚▞▚▞▚▞_"
+
+
 
   useEffect(() => {
     if (!isPaused) {
@@ -34,22 +60,23 @@ const Footer = () => {
 
   return (
     <div className="flex flex-col w-full">
-      <div className='h-[20vh] bg-[#1f1f1f] w-full relative flex flex-col items-center justify-center overflow-hidden'>
+      <div className='h-full bg-[#1f1f1f] tracking-tight w-full relative flex flex-col items-center justify-center overflow-hidden'>
         <div className="flex flex-col md:flex-row w-[95%] h-full "
         style={{
-          padding: "clamp(1rem, 1.25vw, 20rem) 0 0 0"
+          padding: "clamp(2rem, 1.5vw, 20rem)  clamp(0.25rem, 0.5vw, 00rem)  ",
+          gap: "clamp(3rem, 2vw, 20rem)"
         }}
         >
 
           <div className=" flex h-fit 
-        
+        md:w-[50%]
            items-center"
             //gap-2 sm:gap-4 md:gap-4 xl:gap-6 2xl:gap-0 
             style={{
-              fontSize: "clamp(0.75rem, 0.8vw, 240rem)"
+              fontSize: "clamp(0.75rem, 0.5vw, 240rem)"
             }}
           >
-            <div className="border-[#FDE037] mono text-[#FDE037] border rounded-full"
+            <div className="border-[#FDE037] mono flex text-[#FDE037] border rounded-full"
               style={{
                 padding: "clamp(0.25rem, 0.25vw, 20rem) clamp(0.5rem, 0.5vw, 20rem)",
               }}
@@ -62,6 +89,26 @@ const Footer = () => {
 
           </div>
 
+          <div className="flex flex-col md:w-[15%]">
+            {socials.map((social, index) => (
+              <Link href={social.link} target="_blank" rel="noopener noreferrer" key={index}>
+                <div className="flex gap-0.5">
+                  <span className="text-white hover:text-[#FDE037] cursor-pointer hover:underline underline-offset-2">{social.name}</span>
+                  <span className=" text-xs mono text-[#FDE037]">{index}</span>
+        
+                </div>
+              </Link>
+            ))}
+          </div>
+
+
+          <div className="flex flex-col md:w-[35%]">
+            <span className="text-white">Let{"'"}s build something together{"."}</span>
+            <div className="flex gap-0.5">
+              <span className="text-white hover:underline underline-offset-2 hover:text-[#FDE037] cursor-pointer">{"heetprox@gmail.com"}</span>
+              <span className=" text-xs mono text-[#FDE037]">5</span>
+            </div>
+          </div>
 
 
         </div>
