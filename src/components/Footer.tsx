@@ -22,6 +22,7 @@ const socials = [
     name: "Github",
     link: "https://www.github.com/heetprox/",
     icon: "github"
+
   },
 ]
 
@@ -64,7 +65,7 @@ const Footer = () => {
         <div className="flex flex-col md:flex-row w-[95%] h-full "
         style={{
           padding: "clamp(2rem, 1.5vw, 20rem)  clamp(0.25rem, 0.5vw, 00rem)  ",
-          gap: "clamp(3rem, 2vw, 20rem)"
+          gap: "clamp(3rem, 2vw, 20rem) "
         }}
         >
 
