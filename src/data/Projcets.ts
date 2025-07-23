@@ -51,8 +51,7 @@ export const projectData: Project[] = [
     type: 'image',
     title: 'Sunflower',
     subtitle: 'find your music buddy.',
-    link: 'vaayu-jewels',
-
+    link: '',
     image: '/projects/sunflower.jpg',
     textColor: '#333333',
     logoImage: true,

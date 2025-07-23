@@ -34,8 +34,12 @@ const Footer = () => {
 
   return (
     <div className="flex flex-col w-full">
-      <div className='h-[20vh] bg-[#222222] w-full relative flex flex-col items-center justify-center overflow-hidden'>
-        <div className="flex flex-col md:flex-row w-[95%]   h-[15vh]">
+      <div className='h-[20vh] bg-[#1f1f1f] w-full relative flex flex-col items-center justify-center overflow-hidden'>
+        <div className="flex flex-col md:flex-row w-[95%] h-full "
+        style={{
+          padding: "clamp(1rem, 1.25vw, 20rem) 0 0 0"
+        }}
+        >
 
           <div className=" flex h-fit 
         
