@@ -1,16 +1,15 @@
 'use client'
 
-import { Project, projectData } from '@/data/Projcets';
+import { Project, projectData, ProjectPageData, projectPageData } from '@/data/Projcets';
 import Image from 'next/image';
-import { usePathname } from 'next/navigation'
+import Link from 'next/link';
+import { useParams, usePathname } from 'next/navigation'
 import React from 'react'
 
 const page = () => {
-    const pathname = usePathname();
-    const project = pathname ? pathname.split('/').pop() : '';
+    const { project } = useParams();
 
-    // Find matching projects
-    const data: Project[] = projectData.filter(element => element.link === project);
+    const data: ProjectPageData[] = projectPageData.filter(element => element.link === project);
 
     return (
         <div className='flex flex-col w-full h-full'
@@ -21,7 +20,7 @@ const page = () => {
             {/* {data.map((project, index) => ( */}
             <div className="flex w-full bg-[#131313] max-h-[90vh] h-auto    ">
                 <Image
-                    src="/projects/vaayujewels.svg"
+                    src={data[0].data[0].image}
                     className='w-full max-h-[90vh] h-auto object-cover'
                     alt="yo"
                     width={100}
@@ -43,12 +42,12 @@ const page = () => {
                         alignSelf: 'flex-start'
                     }}
                 >
-                    <div className="text-white off leading-none"
+                    <div className="text-white off uppercase leading-none"
                         style={{
                             fontSize: "clamp(1.5rem, 1.95vw, 240rem)",
                         }}
                     >
-                        VAAYU JEWLES
+                        {data[0].title}
                     </div>
                     <h3
                         style={{
@@ -56,7 +55,7 @@ const page = () => {
                             paddingTop: "clamp(0.25rem, 0.25vw, 240rem)",
                         }}
                         className="uppercase mono tracking-wide font-medium text-white/30">
-                        A Jewellery Store
+                        {data[0].subtitle}
                     </h3>
                 </div>
 
@@ -75,13 +74,13 @@ const page = () => {
                     >
                         <div className="flex w-full md:w-[50%] flex-col">
                             <p className="mb-4  leading-tight" >
-                                Jo (He/Him) designs interfaces. He thrives in complex, ambiguous problem spaces focused around interactive media, digital tooling, and multimodal interaction.  If you have an interesting idea, please get in touch↗.
+                                {data[0].description1}
                             </p>
                         </div>
 
                         <div className="md:flex md:w-[50%] hidden w-full flex-col">
                             <p className="mb-4  leading-tight" >
-                                Jo (He/Him) designs interfaces. He thrives in complex, ambiguous problem If you have an interesting idea, please get in touch↗.
+                                {data[0].description2}
                             </p>
                         </div>
                     </div>
@@ -102,10 +101,10 @@ const page = () => {
                                 className="uppercase mono tracking-wide font-medium text-white/40">
                                 ROLE
                             </h3>
-                            <p className="mb-4  leading-tight" >
-                                Full Stack Developer.
-                                <br />
-                                Designer.
+                            <p className="mb-4   leading-tight flex flex-col" >
+                                {data[0].role.map((role, index) => (
+                                    <span key={index}>{role}</span>
+                                ))}
                             </p>
                         </div>
 
@@ -114,7 +113,7 @@ const page = () => {
                         <div className="flex flex-col w-full md:w-1/4"
 
                         >
-                         <h3
+                            <h3
                                 style={{
                                     fontSize: "clamp(0.75rem, 0.5vw, 240rem)",
                                     paddingTop: "clamp(0.25rem, 0.25vw, 240rem)",
@@ -123,7 +122,9 @@ const page = () => {
                                 Collaborators
                             </h3>
                             <p className="mb-4  leading-tight" >
-                                Harshil Madaliya
+                                {data[0].collaborators.map((collaborator, index) => (
+                                    <span key={index}>{collaborator}</span>
+                                ))}
                             </p>
                         </div>
 
@@ -142,7 +143,7 @@ const page = () => {
                                 Duration
                             </h3>
                             <p className="mb-4  leading-tight" >
-                                {"(SEP-NOV) 2024 "}
+                                {data[0].timeline}
                             </p>
                         </div>
 
@@ -161,70 +162,71 @@ const page = () => {
                                 TOOLS
                             </h3>
                             <p className="mb-4   leading-tight" >
-                                Next.js (App Router) (Api).
-                                <br />
-                                Framer-motion.
-                                <br />
-                                Tailwind CSS.
+                                {data[0].techStack.map((tech, index) => (
+                                    <span key={index}>{tech} <br /></span>
+                                ))}
                             </p>
                         </div>
                     </div>
 
                     <div className="flex md:flex-row flex-col"
-                    style={{
-                        gap: "clamp(0.5rem, 0.75vw, 240rem)",
-                        paddingTop: "clamp(0.5rem, 1.75vw, 240rem)",
-                    }}
+                        style={{
+                            gap: "clamp(0.5rem, 0.75vw, 240rem)",
+                            paddingTop: "clamp(0.5rem, 1.75vw, 240rem)",
+                        }}
                     >
 
                         <div className="flex flex-col md:w-1/2 w-full">
-                            <button
+                            <Link
+                                href={data[0].rlinks[0].link}
                                 style={{
                                     fontSize: "clamp(0.75rem, 0.75vw, 240rem)",
                                     padding: "clamp(1rem, 0.75vw, 240rem)",
                                 }}
                                 className="uppercase mono text-left font-normal flex justify-between text-white/70 bg-neutral-300/5 rounded-md cursor-pointer hover:bg-neutral-200/10 transition-all duration-100 hover:text-white">
-                                    <div>MAIN WEBSITE</div>
-                                    <div className="scale-150">↗</div>
-                            </button>
-                           
+                                <div>{data[0].rlinks[0].text}</div>
+                                <div className="scale-150">↗</div>
+                            </Link>
+
                         </div>
                         <div className="flex flex-col md:w-1/2 w-full">
-                            <button
+                            <Link
+                                href={data[0].rlinks[1].link}
                                 style={{
                                     fontSize: "clamp(0.75rem, 0.75vw, 240rem)",
                                     padding: "clamp(1rem, 0.75vw, 240rem)",
                                 }}
                                 className="uppercase mono text-left font-normal flex justify-between text-white/70 bg-neutral-300/5 rounded-md cursor-pointer hover:bg-neutral-200/10 transition-all duration-100 hover:text-white">
-                                    <div>SEO</div>
-                                    <div className="scale-150">↗</div>
-                            </button>
-                           
+                                <div>{data[0].rlinks[1].text}</div>
+                                <div className="scale-150">↗</div>
+                            </Link>
+
                         </div>
                     </div>
 
-
-                    <div className="flex flex-col w-full h-full  "
-                    style={{
-                        paddingTop: "clamp(0.5rem, 0.75vw, 240rem)",
-                    }}
-                    >
-                        <Image
-                            src="/projects/vaayo.png"
-                            className=' h-auto w-full object-cover '
-                            alt="IF you are not seeing image this than you shouln't be."
-                            width={100}
-                            height={100}
-                        />
-                          <h3
+                    {data[0].data.map((data, index) => (
+                        <div key={index} className="flex flex-col w-full h-full  "
+                            style={{
+                                paddingTop: "clamp(0.5rem, 0.75vw, 240rem)",
+                            }}
+                        >
+                            <Image
+                                src={data.image}
+                                className=' h-auto w-full object-cover '
+                                alt="IF you are not seeing image this than you shouln't be."
+                                width={100}
+                                height={100}
+                            />
+                            <h3
                                 style={{
                                     fontSize: "clamp(0.75rem, 0.75vw, 240rem)",
                                     paddingTop: "clamp(0.25rem, 0.75vw, 240rem)",
                                 }}
                                 className="uppercase mono tracking-wide font-medium text-white/50">
-                                Multimodal search with the ability to give follow-up queries.
+                                {data.description}
                             </h3>
-                    </div>
+                        </div>
+                    ))}
                 </div>
             </div>
         </div>

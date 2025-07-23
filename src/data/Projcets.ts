@@ -15,7 +15,7 @@ export interface Project {
 
 export const projectData: Project[] = [
   {
-    id: 14,
+    id: 1,
     type: 'image',
     title: 'Trackyou',
     subtitle: 'Track your coding activity.',
@@ -26,7 +26,7 @@ export const projectData: Project[] = [
     logoImage: true
   },
   {
-    id: 12,
+    id: 2,
     type: 'video',
     title: 'Vaayu jewels',
     link: '/vaayu-jewels',
@@ -37,7 +37,7 @@ export const projectData: Project[] = [
   },
 
   {
-    id: 14,
+    id: 3,
     type: 'image',
     title: 'Paycrypt',
     subtitle: 'your bank solution.',
@@ -47,7 +47,7 @@ export const projectData: Project[] = [
     logoImage: true
   },
   {
-    id: 11,
+    id: 4,
     type: 'image',
     title: 'Sunflower',
     subtitle: 'find your music buddy.',
@@ -58,7 +58,7 @@ export const projectData: Project[] = [
     locked: true
   },
   {
-    id: 1,
+    id: 5,
     type: 'image',
     title: 'Kafinao',
     subtitle: "A Coffee shop NFTs",
@@ -69,7 +69,7 @@ export const projectData: Project[] = [
     logoImage: true
   },
   {
-    id: 13,
+    id: 6,
     type: 'video',
     title: 'SpeedCast',
     subtitle: 'better api client than axios.',
@@ -80,3 +80,60 @@ export const projectData: Project[] = [
     logoImage: true
   },
 ]
+
+export interface ProjectPageData {
+  link: string;
+  title: string;
+  subtitle: string;
+  description1: string;
+  description2: string;
+  role: string[];
+  collaborators: string[];
+  techStack: string[];
+  timeline: string;
+  rlinks: {
+    link: string;
+    text: string;
+  }[];
+
+  data: {
+    image: string;
+    description: string;
+  }[];
+}
+
+export const projectPageData: ProjectPageData[] = [
+  {
+    link: 'vaayu-jewels',
+    title: 'Vaayu Jewels',
+    subtitle: 'E-COMMERCE JEWELRY WEBSITE',
+    description1: "I (He/Him) build digital experiences. I crafted VaayuJewels.com end to end — from frontend flows to backend logic. I thrive where design meets engineering, and I'm always up for shaping beautiful, functional web products. Got something cool in mind? Let’s connect ↗",
+    description2: "I (He/Him) design and develop websites. I built VaayuJewels.com from scratch — full-stack architecture↗",
+    role: ['Full Stack Developer.', 'Designer.'],
+    collaborators: ['Harshil Madaliye'],
+
+    techStack: ['React', 'Next.js', 'Tailwind CSS', 'TypeScript'],
+    timeline: '(SEP-NOV) 2024',
+    rlinks: [
+      {
+        link: 'https://vaayujewels.com',
+        text: 'MAIN WEBSITE',
+      },
+      {
+        link: 'https://www.google.com/search?q=vaayu+jewels&oq=vaayu+jewels&gs_lcrp=EgZjaHJvbWUyCQgAEEUYORiABDINCAEQABiGAxiABBiKBTIKCAIQABiABBiiBDIKCAMQABiABBiiBDIKCAQQABiABBiiBDIKCAUQABiABBiiBDIKCAYQABiABBiiBNIBCDc0NzZqMGo3qAIAsAIA&sourceid=chrome&ie=UTF-8',
+        text: 'SEO',
+      },
+    ],  
+
+    data: [
+      {
+        image: '/projects/vaayujewels/1.png',
+        description: 'VaayuJewels.com is a website that sells jewelry.',
+      },
+    ]
+
+
+  }
+]
+
+
