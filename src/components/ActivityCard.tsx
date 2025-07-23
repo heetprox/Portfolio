@@ -91,13 +91,13 @@ export default function ActivityCard({
           <div className="rounded-lg flex py-2 pl-2 -mx-1 bg-neutral-800/40 items-center gap-2">
             <div
               style={{
-                width: "clamp(4.5rem, 4vw, 240rem)",
-                height: "clamp(4.5rem, 4vw, 240rem)",
+                width: "clamp(4.5rem, 3vw, 240rem)",
+                height: "clamp(4.5rem, 3vw, 240rem)",
               }}
-              className="w-auto aspect-square rounded-[0.25rem] overflow-hidden">
+              className="aspect-square rounded-[0.25rem] overflow-hidden">
               <OptimizedImage
-                height={5000}
-                width={5000}
+                height={500}
+                width={500}
                 alt={activity.name}
                 className="h-full w-full rounded-[0.25rem] object-cover"
                 src={getActivityImageUrl(activity)}
