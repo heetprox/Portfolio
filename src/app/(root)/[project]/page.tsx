@@ -6,7 +6,7 @@ import Link from 'next/link';
 import { useParams } from 'next/navigation'
 import React from 'react'
 
-const page = () => {
+const ProjectPage = () => {
     const { project } = useParams();
 
     const data: ProjectPageData[] = projectPageData.filter(element => element.link === project);
@@ -233,4 +233,4 @@ const page = () => {
     )
 }
 
-export default page
+export default ProjectPage

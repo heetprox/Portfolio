@@ -4,7 +4,22 @@ import { motion, Variants } from "framer-motion";
 import { itemVariants } from "@/lib/utils";
 import OptimizedImage from "./Image";
 
-const getActivityImageUrl = (activity: any) => {
+interface DiscordActivity {
+  id: string;
+  name: string;
+  type: number;
+  state?: string;
+  details?: string;
+  application_id?: string;
+  assets?: {
+    large_image?: string;
+    large_text?: string;
+    small_image?: string;
+    small_text?: string;
+  };
+}
+
+const getActivityImageUrl = (activity: DiscordActivity) => {
   if (!activity?.assets?.large_image) {
     return "https://i.pinimg.com/736x/c0/0f/07/c00f07cdae11db49e00f55b011ccc4f3.jpg";
   }
