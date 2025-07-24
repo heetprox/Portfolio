@@ -3,13 +3,16 @@
 import { ProjectPageData, projectPageData } from '@/data/Projcets';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useParams } from 'next/navigation'
+import { redirect, useParams } from 'next/navigation'
 import React from 'react'
 
 const page = () => {
     const { project } = useParams();
 
     const data: ProjectPageData[] = projectPageData.filter(element => element.link === project);
+    if (data.length === 0) {
+        redirect('/not-found')
+    }
 
     return (
         <div className='flex flex-col w-full h-full'

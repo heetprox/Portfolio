@@ -42,7 +42,7 @@ export const projectData: Project[] = [
     title: 'Paycrypt',
     subtitle: 'your bank solution.',
     link: '/paycrypt',
-    image: '/preview/paycryot.png',
+    image: '/preview/paycrypt.svg',
     textColor: '#333333',
     logoImage: true
   },
@@ -113,7 +113,6 @@ export const projectPageData: ProjectPageData[] = [
     description2: "I (He/Him) design and develop websites. I built VaayuJewels.com from scratch — full-stack architecture↗",
     role: ['Full Stack Developer.', 'Designer.'],
     collaborators: ['Harshil Madaliye'],
-
     techStack: ['React', 'Next.js', 'Tailwind CSS', 'TypeScript'],
     timeline: '(SEP-NOV) 2024',
     rlinks: [

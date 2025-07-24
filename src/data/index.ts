@@ -11,7 +11,7 @@ export interface TeamEntry {
   export const teamData: TeamEntry[] = [
     {
       company: "Repixelx Studio",
-      period: "2025 - Present",
+      period: "2025",
       description: "In Studio i works on diffrent-diffrent freelance project like web-app, e-commerce, product landing page, brand website, etc."
     },
     {
