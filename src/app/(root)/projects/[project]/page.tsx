@@ -26,8 +26,8 @@ const page = () => {
                     src={data[0].poster}
                     className='w-full max-h-[90vh] h-auto object-cover'
                     alt="yo"
-                    width={100}
-                    height={100}
+                    width={300}
+                    height={300}
                 />
             </div>
 

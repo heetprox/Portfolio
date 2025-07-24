@@ -125,7 +125,6 @@ export const projectPageData: ProjectPageData[] = [
         text: 'SEO',
       },
     ],  
-
     data: [
       {
         image: '/projects/vaayujewels/2.png',
@@ -136,6 +135,38 @@ export const projectPageData: ProjectPageData[] = [
 
   },
 
+
+
+  {
+    link: 'paycrypt',
+    title: 'Paycrypt',
+    poster: '/projects/paycrypt/1.gif',
+    subtitle: 'YOUR PAYMENTS SOLUTION',
+    description1: "I (He/Him) build digital experiences. I crafted VaayuJewels.com end to end — from frontend flows to backend logic. I thrive where design meets engineering, and I'm always up for shaping beautiful, functional web products. Got something cool in mind? Let’s connect ↗",
+    description2: "I (He/Him) design and develop websites. I built VaayuJewels.com from scratch — full-stack architecture↗",
+    role: ['Full Stack Developer.', 'Designer.'],
+    collaborators: ['Harshil Madaliye'],
+    techStack: ['React', 'Next.js', 'Tailwind CSS', 'TypeScript'],
+    timeline: '(SEP-NOV) 2024',
+    rlinks: [
+      {
+        link: 'https://vaayujewels.com',
+        text: 'MAIN WEBSITE',
+      },
+      {
+        link: 'https://www.google.com/search?q=vaayu+jewels&oq=vaayu+jewels&gs_lcrp=EgZjaHJvbWUyCQgAEEUYORiABDINCAEQABiGAxiABBiKBTIKCAIQABiABBiiBDIKCAMQABiABBiiBDIKCAQQABiABBiiBDIKCAUQABiABBiiBDIKCAYQABiABBiiBNIBCDc0NzZqMGo3qAIAsAIA&sourceid=chrome&ie=UTF-8',
+        text: 'SEO',
+      },
+    ],  
+    data: [
+      {
+        image: '/projects/vaayujewels/2.png',
+        description: 'VaayuJewels.com is a website that sells jewelry.',
+      },
+    ]
+
+
+  },
   
 ]
 
