@@ -45,7 +45,7 @@ const Projects = () => {
             }}
           >
             {column.map((project: Project) => (
-              <Link href={project.link}
+              <Link href={`/projects/${project.link}`}
                 key={project.id}
               >
 
