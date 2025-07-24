@@ -13,6 +13,7 @@ const Navbar = () => {
             style={{
                 fontSize: "clamp(0.8rem, 0.9vw, 240rem)",
                 padding: "clamp(0.75rem, 0.75vw, 240rem) clamp(0.75rem, 0.75vw, 240rem)",
+                gap: "clamp(1rem, 1vw, 240rem)",
             }}
         >
             <div className="flex w-[35%] md:w-1/2">
