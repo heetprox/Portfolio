@@ -91,7 +91,7 @@ const Footer = () => {
             {socials.map((social, index) => (
               <Link href={social.link} target="_blank" rel="noopener noreferrer" key={index}>
                 <div className="flex gap-0.5">
-                  <span className="text-white hover:text-[#FDE037] cursor-pointer hover:underline underline-offset-2">{social.name}</span>
+                  <span className="text-white hover:text-[#FDE037] cursor-pointer hover:border-b hover:border-[#FDE037] border-dotted">{social.name}</span>
                   <span className=" text-xs mono text-[#FDE037]">{index}</span>
         
                 </div>
@@ -103,7 +103,7 @@ const Footer = () => {
           <div className="flex flex-col md:w-[35%]">
             <span className="text-white">Let{"'"}s build something together{"."}</span>
             <div className="flex gap-0.5">
-              <span className="text-white hover:underline underline-offset-2 hover:text-[#FDE037] cursor-pointer">{"heetprox@gmail.com"}</span>
+              <span className="text-white hover:border-b hover:border-[#FDE037] border-dotted hover:text-[#FDE037] cursor-pointer">{"heetprox@gmail.com"}</span>
               <span className=" text-xs mono text-[#FDE037]">5</span>
             </div>
           </div>
