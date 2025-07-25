@@ -142,21 +142,18 @@ export const projectPageData: ProjectPageData[] = [
     title: 'Paycrypt',
     poster: '/projects/paycrypt/1.gif',
     subtitle: 'YOUR PAYMENTS SOLUTION',
-    description1: "I (He/Him) build digital experiences. I crafted VaayuJewels.com end to end — from frontend flows to backend logic. I thrive where design meets engineering, and I'm always up for shaping beautiful, functional web products. Got something cool in mind? Let’s connect ↗",
-    description2: "I (He/Him) design and develop websites. I built VaayuJewels.com from scratch — full-stack architecture↗",
+    description1: "Paycrypt is a financial technology company, not a bank or a money services business. Certain services are provided by our licensed partners across the globe. By creating your account on Paycrypt, you agree to our terms and conditions, our partners's terms↗",
+    description2: "Join the future of global payments today. Start accepting crypto and fiat payments in minutes.",
     role: ['Full Stack Developer.', 'Designer.'],
-    collaborators: ['Harshil Madaliye'],
-    techStack: ['React', 'Next.js', 'Tailwind CSS', 'TypeScript'],
-    timeline: '(SEP-NOV) 2024',
+    collaborators: ['Tanmay','Meyank'],
+    techStack: ['Next.js','Solidiy','Go', 'TypeScript'],
+    timeline: '2025',
     rlinks: [
       {
-        link: 'https://vaayujewels.com',
+        link: 'https://paycrypt.tech/',
         text: 'MAIN WEBSITE',
       },
-      {
-        link: 'https://www.google.com/search?q=vaayu+jewels&oq=vaayu+jewels&gs_lcrp=EgZjaHJvbWUyCQgAEEUYORiABDINCAEQABiGAxiABBiKBTIKCAIQABiABBiiBDIKCAMQABiABBiiBDIKCAQQABiABBiiBDIKCAUQABiABBiiBDIKCAYQABiABBiiBNIBCDc0NzZqMGo3qAIAsAIA&sourceid=chrome&ie=UTF-8',
-        text: 'SEO',
-      },
+      
     ],  
     data: [
     ]

@@ -1,5 +1,6 @@
 'use client'
 
+import LinkButton from '@/components/LinkButton';
 import { ProjectPageData, projectPageData } from '@/data/Projcets';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -123,7 +124,7 @@ const Page = () => {
                                 className="uppercase mono tracking-wide font-medium text-white/40">
                                 Collaborators
                             </h3>
-                            <p className="mb-4  leading-tight" >
+                            <p className="mb-4  leading-tight flex flex-col" >
                                 {data[0].collaborators.map((collaborator, index) => (
                                     <span key={index}>{collaborator}</span>
                                 ))}
@@ -178,32 +179,9 @@ const Page = () => {
                         }}
                     >
 
-                        <div className="flex flex-col md:w-1/2 w-full">
-                            <Link
-                                href={data[0].rlinks[0].link}
-                                style={{
-                                    fontSize: "clamp(0.75rem, 0.75vw, 240rem)",
-                                    padding: "clamp(1rem, 0.75vw, 240rem)",
-                                }}
-                                className="uppercase mono text-left font-normal flex justify-between text-white/70 bg-neutral-300/5 rounded-md cursor-pointer hover:bg-neutral-200/10 transition-all duration-100 hover:text-white">
-                                <div>{data[0].rlinks[0].text}</div>
-                                <div className="scale-150">↗</div>
-                            </Link>
-
-                        </div>
-                        <div className="flex flex-col md:w-1/2 w-full">
-                            <Link
-                                href={data[0].rlinks[1].link}
-                                style={{
-                                    fontSize: "clamp(0.75rem, 0.75vw, 240rem)",
-                                    padding: "clamp(1rem, 0.75vw, 240rem)",
-                                }}
-                                className="uppercase mono text-left font-normal flex justify-between text-white/70 bg-neutral-300/5 rounded-md cursor-pointer hover:bg-neutral-200/10 transition-all duration-100 hover:text-white">
-                                <div>{data[0].rlinks[1].text}</div>
-                                <div className="scale-150">↗</div>
-                            </Link>
-
-                        </div>
+                       {data[0].rlinks.map((link, index) => (
+                        <LinkButton key={index} link={link.link} text={link.text} />
+                       ))}
                     </div>
 
                     {data[0].data.map((data, index) => (
