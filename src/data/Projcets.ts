@@ -159,10 +159,6 @@ export const projectPageData: ProjectPageData[] = [
       },
     ],  
     data: [
-      {
-        image: '/projects/vaayujewels/2.png',
-        description: 'VaayuJewels.com is a website that sells jewelry.',
-      },
     ]
 
 

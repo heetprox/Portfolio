@@ -31,7 +31,7 @@ const Page = () => {
                 />
             </div>
 
-            <div className="flex min-h-[200vh] flex-col md:flex-row  w-full h-full" style={{
+            <div className="flex flex-col md:flex-row  w-full h-full" style={{
                 position: 'relative',
                 gap: "clamp(0.5rem, 0.75vw, 240rem)",
 
@@ -63,11 +63,10 @@ const Page = () => {
                 </div>
 
 
-                <div className="w-full md:w-[67%] flex flex-col" style={{
-                    minHeight: '200vh',
+                <div className="w-full md:w-[67%]  flex flex-col" style={{
                     gap: "clamp(0.5rem, 0.75vw, 240rem)",
                     fontSize: "clamp(0.75rem, 0.9vw, 240rem)",
-
+                    marginBottom: "clamp(1rem, 2vw, 240rem)",
                 }}
                 >
                     <div className="flex w-full flex-col md:flex-row"
