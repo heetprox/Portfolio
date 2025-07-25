@@ -38,7 +38,7 @@ const Home = ({ activity }: { activity: LanyardResponse | undefined }) => {
         >
           <div className="flex flex-col md:w-[50%] w-full"
             style={{
-              gap: "clamp(0.5rem, 1vw, 240rem)",
+              gap: "clamp(1rem, 1vw, 240rem)",
             }}
           >
             <h3
@@ -51,7 +51,7 @@ const Home = ({ activity }: { activity: LanyardResponse | undefined }) => {
               {" (He/Him) is a full-stack developer who builds scalable applications people actually use. He loves crafting creative, intuitive frontends, while architecting robust backends that scale. Passionate about real-world impact, he’s constantly exploring new ideas—whether it's for smoother user experiences or pushing boundaries with emerging tech. He’s currently studying Computer Engineering at VGEC, Ahmedabad. If you have an interesting idea, please   "} <Link href="mailto:heetprox@gmail.com" className='hover:text-[#FDE037] hover:border-b hover:border-[#FDE037] border-dotted cursor-pointer'>get in touch↗.</Link>
             </p>
 
-            <div className=" p-4 w-fit">
+            <div className=" p-4  w-fit">
               <ActivityCard userId="1118212847613247558" initialData={activity} />
             </div>
           </div>
