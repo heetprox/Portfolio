@@ -45,7 +45,7 @@ const Projects = () => {
             }}
           >
             {column.map((project: Project) => (
-              <Link href={`/projects/${project.link}`}
+              <Link href={project.locked ? '#':`/projects/${project.link}`}
                 key={project.id}
               >
 
