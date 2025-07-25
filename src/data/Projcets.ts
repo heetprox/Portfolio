@@ -181,6 +181,31 @@ export const projectPageData: ProjectPageData[] = [
       
     ],  
     data: [
+      {
+        image: "/projects/speedcast/2.png",
+        description: 'install api client.'
+      },
+      {
+        image: "/projects/speedcast/3.png",
+        description: "A blazing fast API client with built-in caching, rate limiting, and TypeScript support for modern JavaScript applications."
+      },
+      {
+        image: "/projects/speedcast/4.png",
+        description: "With Speedcast API, you can focus on building your application while it handles the complex tasks like caching, rate limiting, and retry logic for you. Whether you're working on a frontend React app, Next.js project or a backend Node.js server, Speedcast API provides a consistent, powerful solution for API management."
+      },
+      {
+        image: "/projects/speedcast/5.png",
+        description: "BETTER THAN AXIOS"
+      },
+      {
+        image: "/projects/speedcast/6.png",
+        description: "Just import Speedcast Api."
+      },
+      {
+        image: "/projects/speedcast/7.png",
+        description: "Rate-limiting is now easy with speedcast api."
+      },
+
     ]
 
 
