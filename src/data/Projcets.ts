@@ -167,11 +167,11 @@ export const projectPageData: ProjectPageData[] = [
     title: 'SPEEDCAST API',
     poster: '/projects/speedcast/1.gif',
     subtitle: ' blazing fast API client with built-in caching',
-    description1: "Paycrypt is a financial technology company, not a bank or a money services business. Certain services are provided by our licensed partners across the globe. By creating your account on Paycrypt, you agree to our terms and conditions, our partners's terms↗",
-    description2: "Join the future of global payments today. Start accepting crypto and fiat payments in minutes.",
-    role: ['Full Stack Developer.', 'Designer.'],
-    collaborators: ['Tanmay','Meyank'],
-    techStack: ['Next.js','Solidiy','Go', 'TypeScript'],
+    description1: "I (He/Him) built SpeedCast in TypeScript—a blazing‑fast API client with smart caching and built‑in rate limiting, so your modern JS apps stay snappy and resilient without you breaking a sweat↗",
+    description2: "SpeedCast is my TypeScript‑powered API client crafted for speed: it handles request caching, rate limits itself automatically, and gives you rock‑solid typing out of the box—perfect for today’s JavaScript ecosystems↗",
+    role: ['Developer.'],
+    collaborators: ['Solo'],
+    techStack: ['TypeScript'],
     timeline: '2025',
     rlinks: [
       {
