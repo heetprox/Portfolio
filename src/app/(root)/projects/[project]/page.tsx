@@ -21,13 +21,13 @@ const Page = () => {
                 gap: "clamp(0.5rem, 2.25vw, 240rem)",
             }}>
             {/* {data.map((project, index) => ( */}
-            <div className="flex w-full bg-[#131313] max-h-[90vh] h-auto    ">
+            <div className="flex w-full bg-[#131313]  h-auto    ">
                 <Image
                     src={data[0].poster}
-                    className='w-full max-h-[90vh] h-auto object-cover'
+                    className='w-full h-auto object-cover'
                     alt="yo"
-                    width={300}
-                    height={300}
+                    width={1000}
+                    height={1000}
                 />
             </div>
 

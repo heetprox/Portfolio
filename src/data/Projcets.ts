@@ -70,12 +70,12 @@ export const projectData: Project[] = [
   },
   {
     id: 6,
-    type: 'video',
+    type: 'image',
     title: 'SpeedCast',
     subtitle: 'better api client than axios.',
-    link: 'vaayu-jewels',
+    link: 'speedcast',
 
-    image: '/preview/speedcast.mp4',
+    image: '/preview/speedcast.gif',
     textColor: '#333333',
     logoImage: true
   },
@@ -109,8 +109,8 @@ export const projectPageData: ProjectPageData[] = [
     title: 'Vaayu Jewels',
     poster: '/projects/vaayujewels/1.svg',
     subtitle: 'E-COMMERCE JEWELRY WEBSITE',
-    description1: "I (He/Him) build digital experiences. I crafted VaayuJewels.com end to end — from frontend flows to backend logic. I thrive where design meets engineering, and I'm always up for shaping beautiful, functional web products. Got something cool in mind? Let’s connect ↗",
-    description2: "I (He/Him) design and develop websites. I built VaayuJewels.com from scratch — full-stack architecture↗",
+    description1: "I (He/Him) build digital experiences. I crafted VaayuJewels.com end to end — from frontend flows to backend logic. I thrive where design meets engineering, and I'm always up for shaping beautiful, functional web products. Got something cool in mind? Let’s connect↗",
+    description2: "I (He/Him) design and develop websites. I built VaayuJewels.com from scratch—full-stack architecture↗",
     role: ['Full Stack Developer.', 'Designer.'],
     collaborators: ['Harshil Madaliye'],
     techStack: ['React', 'Next.js', 'Tailwind CSS', 'TypeScript'],
@@ -162,6 +162,31 @@ export const projectPageData: ProjectPageData[] = [
   },
 
 
+  {
+    link: 'speedcast',
+    title: 'SPEEDCAST API',
+    poster: '/projects/speedcast/1.gif',
+    subtitle: ' blazing fast API client with built-in caching',
+    description1: "Paycrypt is a financial technology company, not a bank or a money services business. Certain services are provided by our licensed partners across the globe. By creating your account on Paycrypt, you agree to our terms and conditions, our partners's terms↗",
+    description2: "Join the future of global payments today. Start accepting crypto and fiat payments in minutes.",
+    role: ['Full Stack Developer.', 'Designer.'],
+    collaborators: ['Tanmay','Meyank'],
+    techStack: ['Next.js','Solidiy','Go', 'TypeScript'],
+    timeline: '2025',
+    rlinks: [
+      {
+        link: 'https://speedcast.heet.pro/',
+        text: 'MAIN WEBSITE',
+      },
+      
+    ],  
+    data: [
+    ]
+
+
+  },
+
+
 
 
 
@@ -169,20 +194,20 @@ export const projectPageData: ProjectPageData[] = [
     link: 'kafinao',
     title: 'Kafinao',
     poster: '/projects/kafinao/0.png',
-    subtitle: 'E-COMMERCE JEWELRY WEBSITE',
-    description1: "I (He/Him) build digital experiences. I crafted VaayuJewels.com end to end — from frontend flows to backend logic. I thrive where design meets engineering, and I'm always up for shaping beautiful, functional web products. Got something cool in mind? Let’s connect ↗",
-    description2: "I (He/Him) design and develop websites. I built VaayuJewels.com from scratch — full-stack architecture↗",
+    subtitle: "YOUR COFFEE SHOP'S NFT COLLECTION",
+    description1: "Kafinao is my ongoing passion project—a live NFT gallery that captures the warmth and character of cafés from Seoul to São Paulo, all animated with buttery‑smooth GSAP magic. its based on world wide coffee shops↗",
+    description2: "I’m building Kafinao from the ground up: a full‑stack NFT showcase inspired by coffee shops worldwide↗",
     role: ['Full Stack Developer.', 'Designer.'],
-    collaborators: ['Harshil Madaliye'],
-    techStack: ['React', 'Next.js', 'Tailwind CSS', 'TypeScript'],
-    timeline: '(SEP-NOV) 2024',
+    collaborators: ['Solo'],
+    techStack: ['Next.js', 'Tailwind CSS', 'TypeScript','GSAP','Framer-motion'],
+    timeline: 'JAN 2025',
     rlinks: [
       {
-        link: 'https://vaayujewels.com',
+        link: 'https://www.kafinao.store/',
         text: 'MAIN WEBSITE',
       },
       {
-        link: 'https://www.google.com/search?q=vaayu+jewels&oq=vaayu+jewels&gs_lcrp=EgZjaHJvbWUyCQgAEEUYORiABDINCAEQABiGAxiABBiKBTIKCAIQABiABBiiBDIKCAMQABiABBiiBDIKCAQQABiABBiiBDIKCAUQABiABBiiBDIKCAYQABiABBiiBNIBCDc0NzZqMGo3qAIAsAIA&sourceid=chrome&ie=UTF-8',
+        link: 'https://www.google.com/search?q=kafinao.store',
         text: 'SEO',
       },
     ],  
