@@ -107,7 +107,7 @@ export const projectPageData: ProjectPageData[] = [
   {
     link: 'vaayu-jewels',
     title: 'Vaayu Jewels',
-    poster: '/projects/vaayujewels/1.svg',
+    poster: '/projects/vaayujewels/1.png',
     subtitle: 'E-COMMERCE JEWELRY WEBSITE',
     description1: "I (He/Him) build digital experiences. I crafted VaayuJewels.com end to end — from frontend flows to backend logic. I thrive where design meets engineering, and I'm always up for shaping beautiful, functional web products. Got something cool in mind? Let’s connect↗",
     description2: "I (He/Him) design and develop websites. I built VaayuJewels.com from scratch—full-stack architecture↗",
@@ -128,7 +128,15 @@ export const projectPageData: ProjectPageData[] = [
     data: [
       {
         image: '/projects/vaayujewels/2.png',
-        description: 'VaayuJewels.com is a website that sells jewelry.',
+      },
+      {
+        image: '/projects/vaayujewels/3.webp',
+      },
+      {
+        image: '/projects/vaayujewels/4.jpg',
+      },
+      {
+        image: '/projects/vaayujewels/5.png',
       },
     ]
 

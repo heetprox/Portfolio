@@ -79,7 +79,7 @@ const Footer = () => {
                 padding: "clamp(0.25rem, 0.25vw, 20rem) clamp(0.5rem, 0.5vw, 20rem)",
               }}
             >
-              {"v1.0.1"}
+              {"v1.0.2"}
             </div>
             <div className="flex text-white/50 mono scale-90 tracking-tight uppercase">
               Last updated 2025-07-26
@@ -103,7 +103,7 @@ const Footer = () => {
           <div className="flex flex-col md:w-[35%]">
             <span className="text-white">Let{"'"}s build something together{"."}</span>
             <div className="flex gap-0.5">
-              <span className="text-white hover:border-b hover:border-[#FDE037] border-dotted hover:text-[#FDE037] cursor-pointer">{"heetprox@gmail.com"}</span>
+              <Link href={"mailto:heetvavadiya099@gmail.com"} className="text-white hover:border-b hover:border-[#FDE037] border-dotted hover:text-[#FDE037] cursor-pointer">{"heetvavadiya099@gmail.com"}</Link>
               <span className=" text-xs mono text-[#FDE037]">5</span>
             </div>
           </div>

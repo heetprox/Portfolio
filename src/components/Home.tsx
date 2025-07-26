@@ -48,7 +48,7 @@ const Home = ({ activity }: { activity: LanyardResponse | undefined }) => {
               }}
               className="uppercase mono font-medium mb-4 text-white/40">About</h3>
             <p className="mb-4 md:w-[70%] w-full leading-tight" >
-              {" (He/Him) is a full-stack developer who builds scalable applications people actually use. He loves crafting creative, intuitive frontends, while architecting robust backends that scale. Passionate about real-world impact, he’s constantly exploring new ideas—whether it's for smoother user experiences or pushing boundaries with emerging tech. He’s currently studying Computer Engineering at VGEC, Ahmedabad. If you have an interesting idea, please   "} <Link href="mailto:heetprox@gmail.com" className='hover:text-[#FDE037] hover:border-b hover:border-[#FDE037] border-dotted cursor-pointer'>get in touch↗.</Link>
+              {" (He/Him) is a full-stack developer who builds scalable applications people actually use. He loves crafting creative, intuitive frontends, while architecting robust backends that scale. Passionate about real-world impact, he’s constantly exploring new ideas—whether it's for smoother user experiences or pushing boundaries with emerging tech. He’s currently studying Computer Engineering at VGEC, Ahmedabad. If you have an interesting idea, please   "} <Link href="mailto:heetvavadiya099@gmail.com" className='hover:text-[#FDE037] hover:border-b hover:border-[#FDE037] border-dotted cursor-pointer'>get in touch↗.</Link>
             </p>
 
             <div className=" p-4  w-fit">
