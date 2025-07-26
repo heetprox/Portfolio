@@ -1,12 +1,7 @@
 import './globals.css';
 import './fonts.css';
-import type { Metadata } from 'next';
 import { ViewTransitions } from 'next-view-transitions';
-
-export const metadata: Metadata = {
-  title: 'Heet Vavadiya - Full-Stack Developer',
-  description: "Portfolio of Heet Vavadiya, Full-Stack Developer based in Ahmedabad, In.",
-};
+import DiscordMetadata from '@/components/DiscordMetadata';
 
 export default function RootLayout({
   children,
@@ -16,6 +11,9 @@ export default function RootLayout({
   return (
     <ViewTransitions>
       <html lang="en" className="scrollbar-none medium-font ">
+        <head>
+          <DiscordMetadata />
+        </head>
         <body className="bg-[#131313] text-white scrollbar-none overflow-y-auto">
           {children}
         </body>

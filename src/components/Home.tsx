@@ -3,6 +3,7 @@ import { LanyardResponse } from 'react-use-lanyard'
 import { teamData } from '@/data'
 import ActivityCard from './ActivityCard';
 import Link from 'next/link';
+import JsonLd from './JsonLd';
 
 const insertSuperscripts = (description: string, superscripts?: { text: string; position: number }[]) => {
   if (!superscripts || superscripts.length === 0) return description;
@@ -21,8 +22,26 @@ const insertSuperscripts = (description: string, superscripts?: { text: string; 
 };
 
 const Home = ({ activity }: { activity: LanyardResponse | undefined }) => {
+  // Person structured data for Heet Vavadiya
+  const personData = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Heet Vavadiya",
+    "url": "https://heet.pro",
+    "jobTitle": "Full Stack Developer",
+    "sameAs": [
+      "https://github.com/heetvadiya",
+      "https://linkedin.com/in/heetvadiya",
+      "https://twitter.com/heetvavadiya"
+    ],
+    "knowsAbout": ["Web Development", "React", "Next.js", "TypeScript", "UI/UX Design"],
+    "alumniOf": "VGEC, Ahmedabad",
+    "email": "heetvavadiya099@gmail.com"
+  };
+
   return (
     <div className="min-h-[40vh] bg-[#131313] text-white pt-16">
+      <JsonLd data={personData} />
       <div className="mx-auto px-4 py-10 flex "
         style={{
           fontSize: "clamp(0.85rem, 0.9vw, 240rem)",

@@ -5,6 +5,7 @@ import { ProjectPageData, projectPageData } from '@/data/Projcets';
 import Image from 'next/image';
 import { redirect, useParams } from 'next/navigation'
 import React from 'react'
+import ProjectStructuredData from '@/components/ProjectStructuredData';
 
 const Page = () => {
     const { project } = useParams();
@@ -20,6 +21,8 @@ const Page = () => {
                 padding: "0 clamp(0.5rem, 0.75vw, 240rem)",
                 gap: "clamp(0.5rem, 2.25vw, 240rem)",
             }}>
+            {/* Add structured data for SEO */}
+            <ProjectStructuredData project={data[0]} />
             {/* {data.map((project, index) => ( */}
             <div className="flex w-full bg-[#131313]  h-auto    ">
                 <Image

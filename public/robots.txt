@@ -1,0 +1,11 @@
+# robots.txt for heet.pro
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://heet.pro/sitemap.xml
+
+# Personal information
+Owner: Heet Vavadiya
+Email: contact@heet.pro
+Website: https://heet.pro
