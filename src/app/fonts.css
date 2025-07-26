@@ -1,65 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
-
-@font-face {
-    font-family: 'DrukWideLCGHeavy';
-    src: url('/fonts/DrukWideLCGHeavy.ttf') format('truetype');
-}
-
-@font-face {
-    font-family: 'DrukWideLCGSuper';
-    src: url('/fonts/DrukWideLCGSuper.ttf') format('truetype');
-}
-
-@font-face {
-    font-family: 'DrukWideLCGBold';
-    src: url('/fonts/DrukWideLCGBold.ttf') format('truetype');
-}
-
-@font-face {
-    font-family: 'DrukWideLCGMedium';
-    src: url('/fonts/DrukWideLCGMedium.ttf') format('truetype');
-}
 
 @font-face {
     font-family: 'Berthold-akzidenz-grotesk-be-medium';
     src: url('/fonts/Berthold-akzidenz-grotesk-be-medium.ttf') format('truetype');
-}
-
-@font-face {
-    font-family: 'Berthold-akzidenz-grotesk-be-regular';
-    src: url('/fonts/Berthold-akzidenz-grotesk-be-regular.ttf') format('truetype');
-}
-
-@font-face {
-    font-family: "SF-Pro-Display-Regular";
-    src: url("/fonts/SF-Pro-Display-Regular.otf") format("opentype");
-    font-style: normal;
-}
-
-
-@font-face {
-    font-family: "SF-Pro-Display-Medium";
-    src: url("/fonts/SF-Pro-Display-Medium.otf") format("opentype");
-    font-style: normal;
-}
-
-@font-face {
-    font-family: "SF-Pro-Display-Bold";
-    src: url("/fonts/SF-Pro-Display-Bold.otf") format("opentype");
-    font-style: normal;
-}
-
-@font-face {
-    font-family: "NeueHaasUnicaPro-Bold";
-    src: url("/fonts/NeueHaasUnicaPro-Bold.ttf") format("truetype");
-    font-style: normal;
-}
-
-@font-face {
-    font-family: "NeueHaasUnicaPro-Medium";
-    src: url("/fonts/NeueHaasUnicaPro-Medium.ttf") format("truetype");
-    font-style: normal;
 }
 
 @font-face {
@@ -82,64 +25,7 @@
     font-family: "InputMonoNarrow-Regular", sans-serif;
     letter-spacing: 0.08em;
 }
-.neue {
-    font-family: "NeueHaasUnicaPro-Medium", sans-serif;
-}
-.neue-bold {
-    font-family: "NeueHaasUnicaPro-Bold", sans-serif;
-}
-
-
-.inter {
-    font-family: "Inter", sans-serif;
-    font-optical-sizing: auto;
-  }
-
-.apple {
-    font-family: "SF-Pro-Display-Regular", sans-serif;
-}
-
-.apple-medium {
-    font-family: "SF-Pro-Display-Medium", sans-serif;
-}
-
-.apple-bold {
-    font-family: "SF-Pro-Display-Bold", sans-serif;
-}
-
-.normal-font {
-    font-family: 'Berthold-akzidenz-grotesk-be-regular', sans-serif;
-}
 
 .medium-font {
     font-family: 'Berthold-akzidenz-grotesk-be-medium', sans-serif;
-}
-
-.druk-bold {
-    font-family: 'DrukWideLCGBold', sans-serif;
-}
-
-.druk-medium {
-    font-family: 'DrukWideLCGMedium', sans-serif;
-    transform: scaleY(1.1);
-
-}
-
-.druk-so {
-    font-family: 'DrukWideLCGMedium', sans-serif;
-
-}
-
-
-.ibm {
-    font-family: "IBM Plex Sans", sans-serif;
-    font-style: normal;
-}
-
-.druk {
-    font-family: 'DrukWideLCGHeavy', sans-serif;
-}
-
-.druk-super {
-    font-family: 'DrukWideLCGSuper', sans-serif;
 }
