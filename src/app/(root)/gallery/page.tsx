@@ -67,7 +67,6 @@ const groupPostsByYear = (posts: Post[]): YearGroup[] => {
     const month = startDate.getMonth();
     const day = startDate.getDate(); // Changed from getDay() to getDate()
 
-    console.log(`Post: ${post.title}, StartDate: ${post.startDate}, Year: ${year}, Month: ${month}, Day: ${day}`); // Debug log
 
     if (!acc[year]) {
       acc[year] = [];
@@ -85,7 +84,6 @@ const groupPostsByYear = (posts: Post[]): YearGroup[] => {
     return acc;
   }, {} as Record<number, PostWithDateInfo[]>);
 
-  console.log('Grouped by year:', grouped); // Debug log
 
   return Object.entries(grouped)
     .map(([year, posts]) => ({
@@ -239,7 +237,6 @@ const GalleryPage = () => {
   }
 
   const yearGroups = groupPostsByYear(data);
-  console.log('Year groups:', yearGroups[0]?.year);
 
   return (
     <div className="flex justify-end w-full"
