@@ -160,16 +160,35 @@ const GalleryPage = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, [data, activePostId]);
 
-  const scrollToPost = (postId: string) => {
-    const element = postRefs.current[postId];
-    if (element) {
-      element.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start',
-        inline: 'nearest'
+ const scrollToPostAlternative = (postId: string) => {
+  const element = postRefs.current[postId];
+  if (element) {
+    // Find the title element within the post
+    const titleElement = element.querySelector('h2');
+    if (titleElement) {
+      const titleRect = titleElement.getBoundingClientRect();
+      const absoluteTitleTop = titleRect.top + window.pageYOffset;
+      
+      // Small offset to show some space above the title
+      const offset = 80;
+      
+      window.scrollTo({
+        top: absoluteTitleTop - offset,
+        behavior: 'smooth'
+      });
+    } else {
+      // Fallback to original method with offset
+      const elementRect = element.getBoundingClientRect();
+      const absoluteElementTop = elementRect.top + window.pageYOffset;
+      const offset = 100;
+      
+      window.scrollTo({
+        top: absoluteElementTop - offset,
+        behavior: 'smooth'
       });
     }
-  };
+  }
+};
 
   if (loading) {
     return (
@@ -206,11 +225,17 @@ const GalleryPage = () => {
   return (
     <div className="flex justify-end w-full"
     style={{
-      paddingTop: "clamp(1rem, 1.25vw, 240rem)"
     }}
     >
       {/* Year Navigation Sidebar */}
-      <div className="w-[25%] hidden md:block h-[100vh] bg-[#0c0c0c] overflow-y-auto">
+      <div className="w-[25%] hidden md:block h-[100vh] "
+       style={{
+                        position: 'sticky',
+                        top: "clamp(0.5rem, 4vw, 240rem)",
+                        height: 'fit-content',
+                        alignSelf: 'flex-start'
+                    }}
+      >
         <div className="p-6">
         {yearGroups.map((yearGroup) => (
             <div key={yearGroup.year} className="mb-8">
@@ -225,7 +250,7 @@ const GalleryPage = () => {
                   return (
                     <div
                       key={post._id}
-                      onClick={() => scrollToPost(post._id)}
+                      onClick={() => scrollToPostAlternative(post._id)}
                       className={`h-10 cursor-pointer transition-all duration-300 ${
                         isActive 
                           ? 'w-20 bg-white' 
