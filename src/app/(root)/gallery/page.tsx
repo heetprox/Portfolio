@@ -81,6 +81,7 @@ const GalleryPage = () => {
   const [data, setData] = useState<Post[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [activePostId, setActivePostId] = useState<string | null>(null);
   const postRefs = useRef<Record<string, HTMLDivElement | null>>({});
 
   useEffect(() => {
@@ -124,6 +125,41 @@ const GalleryPage = () => {
     fetchData();
   }, []);
 
+  // Scroll spy effect to highlight active post
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY + window.innerHeight / 2;
+      
+      let currentPost = null;
+      let minDistance = Infinity;
+
+      // Find the post closest to the center of the viewport
+      Object.entries(postRefs.current).forEach(([postId, element]) => {
+        if (element) {
+          const elementTop = element.offsetTop;
+          const elementBottom = elementTop + element.offsetHeight;
+          const elementCenter = elementTop + element.offsetHeight / 2;
+          
+          const distance = Math.abs(scrollPosition - elementCenter);
+          
+          if (distance < minDistance && elementTop <= scrollPosition && elementBottom >= scrollPosition - window.innerHeight / 2) {
+            minDistance = distance;
+            currentPost = postId;
+          }
+        }
+      });
+
+      if (currentPost !== activePostId) {
+        setActivePostId(currentPost);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    handleScroll(); // Call once to set initial state
+
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [data, activePostId]);
+
   const scrollToPost = (postId: string) => {
     const element = postRefs.current[postId];
     if (element) {
@@ -165,29 +201,40 @@ const GalleryPage = () => {
   }
 
   const yearGroups = groupPostsByYear(data);
-  console.log('Year groups:', yearGroups); 
+  console.log('Year groups:', yearGroups[0]?.year); 
 
   return (
-    <div className="flex justify-end w-full">
+    <div className="flex justify-end w-full"
+    style={{
+      paddingTop: "clamp(1rem, 1.25vw, 240rem)"
+    }}
+    >
       {/* Year Navigation Sidebar */}
-      <div className="w-[25%] hidden md:block h-[100vh] bg-[#0c0c0c] fixed left-0 top-0 overflow-y-auto">
+      <div className="w-[25%] hidden md:block h-[100vh] bg-[#0c0c0c] overflow-y-auto">
         <div className="p-6">
-          {yearGroups.map((yearGroup) => (
+        {yearGroups.map((yearGroup) => (
             <div key={yearGroup.year} className="mb-8">
               <div className="text-white text-sm font-mono mb-4">
                 {yearGroup.year}
               </div>
               
               {/* Horizontal Bars for Posts */}
-              <div className="space-y-2">
-                {yearGroup.posts.map((post, index) => (
-                  <div
-                    key={post._id}
-                    onClick={() => scrollToPost(post._id)}
-                    className="w-16 h-1 bg-white/30 hover:bg-white/60 cursor-pointer transition-all duration-300 hover:w-20"
-                    title={post.title}
-                  />
-                ))}
+              <div className="flex flex-col gap-10">
+                {yearGroup.posts.map((post) => {
+                  const isActive = activePostId === post._id;
+                  return (
+                    <div
+                      key={post._id}
+                      onClick={() => scrollToPost(post._id)}
+                      className={`h-10 cursor-pointer transition-all duration-300 ${
+                        isActive 
+                          ? 'w-20 bg-white' 
+                          : 'w-16 bg-white/30 hover:bg-white/60 hover:w-18'
+                      }`}
+                      title={post.title}
+                    />
+                  );
+                })}
               </div>
             </div>
           ))}
@@ -197,7 +244,7 @@ const GalleryPage = () => {
       {/* Main Content */}
       <div className="w-full md:w-[75%] md:ml-[25%]"
         style={{
-          padding: "clamp(1rem, 1.25vw, 240rem) clamp(0.5rem, 0.5vw, 240rem)",  
+          padding: "0 clamp(0.5rem, 0.5vw, 240rem)",  
         }}
       >
         {data && data.length > 0 ? (
