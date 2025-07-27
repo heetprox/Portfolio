@@ -4,8 +4,8 @@ import React, { useState, useEffect, useRef } from 'react'
 
 const socials = [
   {
-     name: "Gallery",
-    link: "/gallery",
+     name: "🔒 Gallery",
+    link: "#",
   }, 
   {
     name: "Twitter",
