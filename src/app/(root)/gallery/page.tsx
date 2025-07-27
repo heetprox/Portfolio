@@ -1,12 +1,14 @@
 import React from 'react'
 import axios, { AxiosError } from 'axios'
+import Image from 'next/image';
 
 const base_url = process.env.NEXT_PUBLIC_BASE_URL
 
 interface Post {
   _id: string;
   title: string;
-  date: string;
+  startDate: Date;
+  endDate?: Date;
   images: string[];
 }
 
@@ -20,14 +22,14 @@ const page = async () => {
         'Accept': 'application/json',
       },
     });
-    
+
     const data = response.data;
-    
+
     return (
       <div className="container mx-auto px-4 py-8">
         <div className="max-w-6xl mx-auto">
           <h1 className="text-4xl font-bold text-gray-800 mb-8 text-center">Gallery</h1>
-          
+
           {/* Check if data array exists and has items */}
           {data && data.length > 0 ? (
             <div className="space-y-12">
@@ -37,28 +39,29 @@ const page = async () => {
                   <h2 className="text-2xl font-bold text-gray-800 mb-2">
                     {post.title}
                   </h2>
-                  
-                  {/* Date */}
+
                   <p className="text-gray-600 text-lg mb-6">
-                    {post.date}
+                    {new Date(post.startDate).toLocaleDateString()}  {post.endDate ? new Date(post.endDate).toLocaleDateString() : ''}
                   </p>
-                  
-                  {/* Images Grid */}
+
+
                   {post.images && post.images.length > 0 && (
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                       {post.images.map((image: string, index: number) => (
                         <div key={index} className="bg-gray-50 rounded-lg overflow-hidden hover:shadow-md transition-shadow duration-300">
-                          <img
+                          <Image
+                          width={400}
+                          height={400}
                             src={image}
                             alt={`${post.title} - Image ${index + 1}`}
-                            className="w-full h-64 object-cover"
+                            className="w-full h-auto object-cover"
                             loading="lazy"
                           />
                         </div>
                       ))}
                     </div>
                   )}
-                  
+
                   {/* No images message for this post */}
                   {(!post.images || post.images.length === 0) && (
                     <p className="text-gray-500 text-center py-4">
@@ -78,13 +81,13 @@ const page = async () => {
     )
   } catch (error) {
     console.error('Error fetching data:', error);
-    
+
     // Type-safe error handling
     let errorMessage = 'Unable to fetch data from the API. Please try again later.';
-    
+
     if (axios.isAxiosError(error)) {
       const axiosError = error as AxiosError;
-      
+
       if (axiosError.code === 'ECONNRESET') {
         errorMessage = 'Connection was reset by the server. This might be due to server overload or timeout.';
       } else if (axiosError.code === 'ECONNREFUSED') {
@@ -95,7 +98,7 @@ const page = async () => {
         errorMessage = `Server responded with status ${axiosError.response.status}: ${axiosError.response.statusText}`;
       }
     }
-    
+
     return (
       <div className="container mx-auto px-4 py-8">
         <div className="max-w-4xl mx-auto text-center">
