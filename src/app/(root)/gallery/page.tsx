@@ -23,7 +23,10 @@ interface YearGroup {
   year: number;
   posts: PostWithDateInfo[];
 }
-// Custom date formatting function
+const formatTitle = (title: string): string => {
+  return title.length > 35 ? title.slice(0, 35) + '...' : title;
+};
+
 const formatDate = (date: Date) => {
   const months = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN',
     'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'];
@@ -296,7 +299,7 @@ const GalleryPage = () => {
                           fontSize: "clamp(0.85rem, 0.9vw, 240rem)",
                         }}
                       >
-                        <span className="text-[#FDE037]">{post.month.toString().length === 1 ? "0" + post.month : post.day.toString().length === 1 ? "0" + post.day : post.day}{"."}{post.month.toString().length === 1 ? "0" + post.month : post.month}</span> {post.title}
+                        <span className="text-[#FDE037]">{post.month.toString().length === 1 ? "0" + post.month : post.day.toString().length === 1 ? "0" + post.day : post.day}{"."}{post.month.toString().length === 1 ? "0" + post.month : post.month}</span> {formatTitle(post.title)}
                       </div>
                     </div>
                   );
