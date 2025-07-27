@@ -245,8 +245,8 @@ const GalleryPage = () => {
       <div className="w-[25%] hidden md:block h-[100vh] "
         style={{
           position: 'sticky',
-          padding: "clamp(0.75rem, 0.75vw, 240rem)",
-          top: "clamp(0.5rem, 4vw, 240rem)",
+          padding: "0 clamp(0.75rem, 0.75vw, 240rem)",
+          top: "clamp(1rem, 3vw, 240rem)",
           height: 'fit-content',
           alignSelf: 'flex-start'
         }}
@@ -292,9 +292,9 @@ const GalleryPage = () => {
 
                       </div>
                       <div className={`text-white w-full overflow-hidden capitalize  ${isHover ? 'block' : 'hidden'}`}
-                      style={{
-                        fontSize: "clamp(0.7rem, 1vw, 240rem)",
-                      }}
+                        style={{
+                          fontSize: "clamp(0.85rem, 0.9vw, 240rem)",
+                        }}
                       >
                         <span className="text-[#FDE037]">{post.month.toString().length === 1 ? "0" + post.month : post.day.toString().length === 1 ? "0" + post.day : post.day}{"."}{post.month.toString().length === 1 ? "0" + post.month : post.month}</span> {post.title}
                       </div>
@@ -309,7 +309,7 @@ const GalleryPage = () => {
 
       <div className="w-full md:w-[75%] md:ml-[25%]"
         style={{
-          padding: "0 clamp(0.5rem, 0.5vw, 240rem)",
+          padding: "clamp(1rem, 1vw, 240rem) clamp(0.5rem, 0.5vw, 240rem)",
         }}
       >
         {data && data.length > 0 ? (
@@ -329,7 +329,7 @@ const GalleryPage = () => {
                 }}
               >
                 <div className="flex flex-col">
-                  <h2 className="text-white">
+                  <h2 className="text-white capitalize">
                     {post.title}
                   </h2>
 
