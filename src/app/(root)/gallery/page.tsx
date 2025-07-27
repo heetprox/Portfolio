@@ -56,25 +56,33 @@ const page = async () => {
 
     const data = response.data;
 
+    // Sort posts by startDate (most recent first)
+    const sortedData = data?.sort((a: Post, b: Post) => {
+      const dateA = new Date(a.startDate);
+      const dateB = new Date(b.startDate);
+      return dateB.getTime() - dateA.getTime(); // Descending order (newest first)
+      // For ascending order (oldest first), use: return dateA.getTime() - dateB.getTime();
+    });
+
     return (
       <div className=" flex justify-end w-full"
 
       >
-        <div className="w-[25%] h-[100vh] bg-[#111111]">
+        <div className="w-[25%] hidden md:block h-[100vh] bg-[#111111]">
         </div>
 
-        <div className="w-[75%]"
+        <div className="w-full md:w-[75%]"
           style={{
-            padding: "clamp(1rem, 1.25vw, 240rem) clamp(0.5rem, 0.5vw, 240rem)",
+            padding: "clamp(1rem, 1.25vw, 240rem) clamp(0.5rem, 0.5vw, 240rem)",  
           }}
         >
-          {data && data.length > 0 ? (
+          {sortedData && sortedData.length > 0 ? (
             <div className="flex-col flex"
               style={{
                 gap: "clamp(1rem, 3vw, 240rem)",
               }}
             >
-              {data.map((post: Post) => (
+              {sortedData.map((post: Post) => (
                 <div key={post._id} className="flex flex-col"
                   style={{
                     gap: "clamp(0.5rem, 0.5vw, 240rem)",

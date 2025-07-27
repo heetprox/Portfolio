@@ -2,6 +2,7 @@ import './globals.css';
 import './fonts.css';
 import { ViewTransitions } from 'next-view-transitions';
 import DiscordMetadata from '@/components/DiscordMetadata';
+import { SmoothScrollProvider } from '@/context/SmoothScrollProvider';
 
 export default function RootLayout({
   children,
@@ -14,9 +15,12 @@ export default function RootLayout({
         <head>
           <DiscordMetadata />
         </head>
+        <SmoothScrollProvider>
         <body className="bg-[#131313] text-white scrollbar-none overflow-y-auto">
           {children}
         </body>
+        </SmoothScrollProvider>
+
       </html>
     </ViewTransitions>
   );
