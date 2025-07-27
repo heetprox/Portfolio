@@ -9,16 +9,20 @@ const base_url = process.env.NEXT_PUBLIC_BASE_URL
 interface Post {
   _id: string;
   title: string;
-  startDate: string; 
-  endDate?: string;  
+  startDate: string; // API returns ISO string, not Date object
+  endDate?: string;  // API returns ISO string, not Date object
   images: string[];
+}
+interface PostWithDateInfo extends Post {
+  year: number;
+  month: number;
+  day: number;
 }
 
 interface YearGroup {
   year: number;
-  posts: Post[];
+  posts: PostWithDateInfo[];
 }
-
 // Custom date formatting function
 const formatDate = (date: Date) => {
   const months = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN',
@@ -57,15 +61,26 @@ const groupPostsByYear = (posts: Post[]): YearGroup[] => {
   const grouped = posts.reduce((acc, post) => {
     const startDate = new Date(post.startDate);
     const year = startDate.getFullYear();
+    const month = startDate.getMonth();
+    const day = startDate.getDate(); // Changed from getDay() to getDate()
 
-    console.log(`Post: ${post.title}, StartDate: ${post.startDate}, Year: ${year}`); // Debug log
+    console.log(`Post: ${post.title}, StartDate: ${post.startDate}, Year: ${year}, Month: ${month}, Day: ${day}`); // Debug log
 
     if (!acc[year]) {
       acc[year] = [];
     }
-    acc[year].push(post);
+
+    // Add the date info to the post
+    const postWithDateInfo: PostWithDateInfo = {
+      ...post,
+      year,
+      month,
+      day
+    };
+
+    acc[year].push(postWithDateInfo);
     return acc;
-  }, {} as Record<number, Post[]>);
+  }, {} as Record<number, PostWithDateInfo[]>);
 
   console.log('Grouped by year:', grouped); // Debug log
 
@@ -203,12 +218,12 @@ const GalleryPage = () => {
     return (
       <div className="container mx-auto px-4 py-8">
         <div className="max-w-4xl mx-auto text-center">
-          <h1 className="text-2xl font-bold text-red-600 mb-4">
+          <h1 className="text-2xl  text-red-600 mb-4">
             Error Loading Data
           </h1>
           <p className="text-gray-600 mb-4">{error}</p>
           <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4 mt-4">
-            <h3 className="text-yellow-800 font-semibold mb-2">Troubleshooting Tips:</h3>
+            <h3 className="text-yellow-800 mb-2">Troubleshooting Tips:</h3>
             <ul className="text-yellow-700 text-sm text-left space-y-1">
               <li>• Check if your API server is running</li>
               <li>• Verify the NEXT_PUBLIC_BASE_URL environment variable</li>
@@ -236,31 +251,52 @@ const GalleryPage = () => {
           alignSelf: 'flex-start'
         }}
       >
-        <div className="p-6">
+        <div className="">
           {yearGroups.map((yearGroup) => (
             <div key={yearGroup.year} className="mb-8">
-              <div className="text-white text-sm font-mono mb-4">
+              <div className="text-white text-lg  "
+                style={{
+                  padding: "clamp(0.5rem, 0.75vw, 240rem) 0",
+                }}
+              >
                 {yearGroup.year}
               </div>
 
               {/* Horizontal Bars for Posts */}
-              <div className="flex flex-col gap-10">
+              <div className="flex flex-col"
+                style={{
+                  gap: "clamp(1rem, 1vw, 240rem)",
+                }}
+              >
                 {yearGroup.posts.map((post) => {
                   const isHover = hoveredPostId === post._id; // ✅ Use centralized hover state
                   const isActive = activePostId === post._id;
                   return (
-                    <div
+                    <div className="flex items-center"
+                      style={{
+                        gap: "clamp(0.5rem, 0.5vw, 240rem)",
+                        height: "clamp(1rem, 1.5vw, 240rem)",
+                      }}
                       key={post._id}
-                      onClick={() => scrollToPostAlternative(post._id)}
-                      onMouseEnter={() => setHoveredPostId(post._id)} // ✅ Update centralized state
-                      onMouseLeave={() => setHoveredPostId(null)} // ✅ Update centralized state
-                      className={`h-2 rounded-full  cursor-pointer ${isActive
-                        ? 'w-20 bg-[#FDE037]'
-                        : 'w-16 bg-white/60 hover:bg-white hover:w-18'
-                        }`}
+
                     >
-                      <div className={`text-white/50 text-sm tracking-wider uppercase mono ${isHover ? 'block' : 'hidden'}`}>
-                        {post.title}
+                      <div
+                        onClick={() => scrollToPostAlternative(post._id)}
+                        onMouseEnter={() => setHoveredPostId(post._id)} // ✅ Update centralized state
+                        onMouseLeave={() => setHoveredPostId(null)} // ✅ Update centralized state
+                        className={`h-2 rounded-full  cursor-pointer ${isActive
+                          ? 'w-16 bg-[#FDE037]'
+                          : 'w-10 bg-white/60 transition-all duration-300 hover:bg-white hover:w-16'
+                          }`}
+                      >
+
+                      </div>
+                      <div className={`text-white w-full overflow-hidden capitalize  ${isHover ? 'block' : 'hidden'}`}
+                      style={{
+                        fontSize: "clamp(0.7rem, 1vw, 240rem)",
+                      }}
+                      >
+                        <span className="text-[#FDE037]">{post.month.toString().length === 1 ? "0" + post.month : post.day.toString().length === 1 ? "0" + post.day : post.day}{"."}{post.month.toString().length === 1 ? "0" + post.month : post.month}</span> {post.title}
                       </div>
                     </div>
                   );
