@@ -12,6 +12,38 @@ interface Post {
   images: string[];
 }
 
+// Custom date formatting function
+const formatDate = (date: Date) => {
+  const months = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN',
+    'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'];
+
+  const day = date.getDate();
+  const month = months[date.getMonth()];
+  const year = date.getFullYear();
+
+  return `${day} ${month}`;
+};
+
+// Function to format date range
+const formatDateRange = (startDate: Date, endDate?: Date) => {
+  const start = new Date(startDate);
+  const year = start.getFullYear();
+
+  if (!endDate) {
+    return `${formatDate(start)} ${year}`;
+  }
+
+  const end = new Date(endDate);
+  const startYear = start.getFullYear();
+  const endYear = end.getFullYear();
+
+  if (startYear === endYear) {
+    return `${formatDate(start)} - ${formatDate(end)} ${year}`;
+  } else {
+    return `${formatDate(start)} ${startYear} - ${formatDate(end)} ${endYear}`;
+  }
+};
+
 const page = async () => {
   try {
     // Add timeout and retry logic
@@ -33,34 +65,48 @@ const page = async () => {
 
         <div className="w-[75%]"
           style={{
-            padding: "0 clamp(0.5rem, 0.5vw, 240rem)",
+            padding: "clamp(1rem, 1.25vw, 240rem) clamp(0.5rem, 0.5vw, 240rem)",
           }}
         >
-          <h1 className="text-4xl font-bold text-white mb-8 text-center">Gallery</h1>
-
-          {/* Check if data array exists and has items */}
           {data && data.length > 0 ? (
-            <div className="space-y-12">
+            <div className="flex-col flex"
+              style={{
+                gap: "clamp(1rem, 3vw, 240rem)",
+              }}
+            >
               {data.map((post: Post) => (
-                <div key={post._id} className=" rounded-xl shadow-lg p-6">
-                  {/* Title */}
-                  <h2 className="text-2xl font-bold text-white mb-2">
-                    {post.title}
-                  </h2>
+                <div key={post._id} className="flex flex-col"
+                  style={{
+                    gap: "clamp(0.5rem, 0.5vw, 240rem)",
+                    fontSize: "clamp(0.85rem, 0.9vw, 240rem)",
+                  }}
+                >
+                  <div className="flex flex-col">
+                    <h2 className="text-white "
+                    >
+                      {post.title}
+                    </h2>
 
-                  <p className="text-gray-600 text-lg mb-6">
-                    {new Date(post.startDate).toLocaleDateString()}  {post.endDate ? new Date(post.endDate).toLocaleDateString() : ''}
-                  </p>
+                    <p className="text-white/50 mono"
+                      style={{
+                        fontSize: "clamp(0.7rem, 0.7vw, 240rem)",
+                        padding: "clamp(0.25rem,0.25vw,200rem) 0"
+                      }}
+                    >
+                      {formatDateRange(post.startDate, post.endDate)}
+                    </p>
+                  </div>
+
 
 
                   {post.images && post.images.length > 0 && (
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 "
-                    style={{
+                      style={{
                         gap: "clamp(0.75rem, 0.75vw, 240rem)",
-                    }}
+                      }}
                     >
                       {post.images.map((image: string, index: number) => (
-                        <div key={index} className="bg-gray-50  overflow-hidden hover:shadow-md transition-shadow duration-300">
+                        <div key={index} className=" overflow-hidden hover:shadow-md transition-shadow duration-300">
                           <Image
                             width={400}
                             height={400}
