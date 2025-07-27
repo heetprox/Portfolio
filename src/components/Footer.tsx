@@ -4,25 +4,24 @@ import React, { useState, useEffect, useRef } from 'react'
 
 const socials = [
   {
+     name: "Gallery",
+    link: "/gallery",
+  }, 
+  {
     name: "Twitter",
     link: "https://www.twitter.com/BlueCopper_/",
-    icon: "twitter"
   },
   {
     name: "Instagram",
     link: "https://www.instagram.com/heetprox/",
-    icon: "instagram"
   },
   {
     name: "LinkedIn",
     link: "https://www.linkedin.com/in/heetvavadiya/",
-    icon: "linkedin"
   },
   {
     name: "Github",
     link: "https://www.github.com/heetprox/",
-    icon: "github"
-
   },
 ]
 
@@ -89,7 +88,7 @@ const Footer = () => {
 
           <div className="flex flex-col md:w-[15%]">
             {socials.map((social, index) => (
-              <Link href={social.link} target="_blank" rel="noopener noreferrer" key={index}>
+              <Link href={social.link} target={index !== 0 ? "_blank" : undefined} rel="noopener noreferrer" key={index}>
                 <div className="flex gap-0.5">
                   <span className="text-white hover:text-[#FDE037] cursor-pointer hover:border-b hover:border-[#FDE037] border-dotted">{social.name}</span>
                   <span className=" text-xs mono text-[#FDE037]">{index}</span>

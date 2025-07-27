@@ -307,7 +307,6 @@ const GalleryPage = () => {
         </div>
       </div>
 
-      {/* Main Content */}
       <div className="w-full md:w-[75%] md:ml-[25%]"
         style={{
           padding: "0 clamp(0.5rem, 0.5vw, 240rem)",
