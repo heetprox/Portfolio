@@ -256,8 +256,12 @@ const GalleryPage = () => {
       >
         <div className="">
           {yearGroups.map((yearGroup) => (
-            <div key={yearGroup.year} className="mb-8">
-              <div className="text-white text-lg  "
+            <div key={yearGroup.year} className="mb-8"
+            style={{
+                          fontSize: "clamp(0.85rem, 0.9vw, 240rem)",
+                        }}
+            >
+              <div className="text-white  "
                 style={{
                   padding: "clamp(0.5rem, 0.75vw, 240rem) 0",
                 }}
@@ -287,17 +291,15 @@ const GalleryPage = () => {
                         onClick={() => scrollToPostAlternative(post._id)}
                         onMouseEnter={() => setHoveredPostId(post._id)} // ✅ Update centralized state
                         onMouseLeave={() => setHoveredPostId(null)} // ✅ Update centralized state
-                        className={`h-2 rounded-full  cursor-pointer ${isActive
-                          ? 'w-16 bg-[#FDE037]'
-                          : 'w-10 bg-white/60 transition-all duration-300 hover:bg-white hover:w-16'
+                        className={`h-1.5 rounded-full  cursor-pointer ${isActive
+                          ? 'w-12 xl:w-14 2xl:w-16 bg-[#FDE037]'
+                          : 'w-8 xl:w-9 2xl:w-10 bg-white/60 transition-all duration-300 hover:bg-white hover:w-12 xl:hover:w-14 2xl:hover:w-16'
                           }`}
                       >
 
                       </div>
                       <div className={`text-white w-full overflow-hidden capitalize  ${isHover ? 'block' : 'hidden'}`}
-                        style={{
-                          fontSize: "clamp(0.85rem, 0.9vw, 240rem)",
-                        }}
+                        
                       >
                         <span className="text-[#FDE037]">{post.month.toString().length === 1 ? "0" + post.month : post.day.toString().length === 1 ? "0" + post.day : post.day}{"."}{post.month.toString().length === 1 ? "0" + post.month : post.month}</span> {formatTitle(post.title)}
                       </div>
