@@ -1,9 +1,8 @@
 'use client';
 
-import { createContext, useContext, useState, useCallback, useRef } from 'react';
+import { createContext, useContext, useState, useCallback } from 'react';
 import { ReactLenis } from '@studio-freight/react-lenis';
 
-// Types for scroll options
 interface ScrollToOptions {
   offset?: number;
   duration?: number;
@@ -12,14 +11,18 @@ interface ScrollToOptions {
   lock?: boolean;
 }
 
+interface LenisInstance {
+  scrollTo: (target: string | number | HTMLElement, options?: ScrollToOptions) => void;
+}
+
 interface SmoothScrollContextType {
   scrollTo: (target: string | number | HTMLElement, options?: ScrollToOptions) => void;
   isReady: boolean;
-  lenisInstance: any;
+  lenisInstance: LenisInstance | null;
 }
 
 interface SmoothScrollProviderProps {
-  children: any; // Using any to avoid React version conflicts
+  children: JSX.Element;
 }
 
 const SmoothScrollContext = createContext<SmoothScrollContextType>({
@@ -29,17 +32,15 @@ const SmoothScrollContext = createContext<SmoothScrollContextType>({
 });
 
 export const SmoothScrollProvider: React.FC<SmoothScrollProviderProps> = ({ children }) => {
-  const [lenisInstance, setLenisInstance] = useState<any>(null);
+  const [lenisInstance, setLenisInstance] = useState<LenisInstance | null>(null);
   const [isReady, setIsReady] = useState<boolean>(false);
 
-  // Scroll to element utility function
   const scrollTo = useCallback((target: string | number | HTMLElement, options: ScrollToOptions = {}) => {
     if (lenisInstance) {
       lenisInstance.scrollTo(target, options);
     }
   }, [lenisInstance]);
 
-  // Options for Lenis
   const lenisOptions = {
     duration: 1.2,
     easing: (t: number): number => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
@@ -52,12 +53,10 @@ export const SmoothScrollProvider: React.FC<SmoothScrollProviderProps> = ({ chil
     infinite: false,
   };
 
-  // Handle ref callback
-  const handleLenisRef = useCallback((instance: any) => {
+  const handleLenisRef = useCallback((instance: unknown) => {
     if (instance) {
-      // Check if it's a ref object with .lenis property or direct instance
-      const lenisRef = instance.lenis || instance;
-      setLenisInstance(lenisRef);
+       const lenisRef = (instance as { lenis?: LenisInstance }).lenis || instance as LenisInstance;
+       setLenisInstance(lenisRef);
       setIsReady(true);
     } else {
       setLenisInstance(null);
