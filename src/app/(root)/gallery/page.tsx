@@ -9,8 +9,8 @@ const base_url = process.env.NEXT_PUBLIC_BASE_URL
 interface Post {
   _id: string;
   title: string;
-  startDate: string; // API returns ISO string, not Date object
-  endDate?: string;  // API returns ISO string, not Date object
+  startDate: string; 
+  endDate?: string;  
   images: string[];
 }
 
@@ -53,13 +53,13 @@ const formatDateRange = (startDate: string, endDate?: string) => {
 
 // Group posts by year
 const groupPostsByYear = (posts: Post[]): YearGroup[] => {
-  
+
   const grouped = posts.reduce((acc, post) => {
     const startDate = new Date(post.startDate);
     const year = startDate.getFullYear();
-    
+
     console.log(`Post: ${post.title}, StartDate: ${post.startDate}, Year: ${year}`); // Debug log
-    
+
     if (!acc[year]) {
       acc[year] = [];
     }
@@ -82,6 +82,7 @@ const GalleryPage = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [activePostId, setActivePostId] = useState<string | null>(null);
+  const [hoveredPostId, setHoveredPostId] = useState<string | null>(null); // ✅ Move hover state to top level
   const postRefs = useRef<Record<string, HTMLDivElement | null>>({});
 
   useEffect(() => {
@@ -129,7 +130,7 @@ const GalleryPage = () => {
   useEffect(() => {
     const handleScroll = () => {
       const scrollPosition = window.scrollY + window.innerHeight / 2;
-      
+
       let currentPost = null;
       let minDistance = Infinity;
 
@@ -139,9 +140,9 @@ const GalleryPage = () => {
           const elementTop = element.offsetTop;
           const elementBottom = elementTop + element.offsetHeight;
           const elementCenter = elementTop + element.offsetHeight / 2;
-          
+
           const distance = Math.abs(scrollPosition - elementCenter);
-          
+
           if (distance < minDistance && elementTop <= scrollPosition && elementBottom >= scrollPosition - window.innerHeight / 2) {
             minDistance = distance;
             currentPost = postId;
@@ -160,40 +161,40 @@ const GalleryPage = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, [data, activePostId]);
 
- const scrollToPostAlternative = (postId: string) => {
-  const element = postRefs.current[postId];
-  if (element) {
-    // Find the title element within the post
-    const titleElement = element.querySelector('h2');
-    if (titleElement) {
-      const titleRect = titleElement.getBoundingClientRect();
-      const absoluteTitleTop = titleRect.top + window.pageYOffset;
-      
-      // Small offset to show some space above the title
-      const offset = 80;
-      
-      window.scrollTo({
-        top: absoluteTitleTop - offset,
-        behavior: 'smooth'
-      });
-    } else {
-      // Fallback to original method with offset
-      const elementRect = element.getBoundingClientRect();
-      const absoluteElementTop = elementRect.top + window.pageYOffset;
-      const offset = 100;
-      
-      window.scrollTo({
-        top: absoluteElementTop - offset,
-        behavior: 'smooth'
-      });
+  const scrollToPostAlternative = (postId: string) => {
+    const element = postRefs.current[postId];
+    if (element) {
+      // Find the title element within the post
+      const titleElement = element.querySelector('h2');
+      if (titleElement) {
+        const titleRect = titleElement.getBoundingClientRect();
+        const absoluteTitleTop = titleRect.top + window.pageYOffset;
+
+        // Small offset to show some space above the title
+        const offset = 80;
+
+        window.scrollTo({
+          top: absoluteTitleTop - offset,
+          behavior: 'smooth'
+        });
+      } else {
+        // Fallback to original method with offset
+        const elementRect = element.getBoundingClientRect();
+        const absoluteElementTop = elementRect.top + window.pageYOffset;
+        const offset = 100;
+
+        window.scrollTo({
+          top: absoluteElementTop - offset,
+          behavior: 'smooth'
+        });
+      }
     }
-  }
-};
+  };
 
   if (loading) {
     return (
       <div className="flex justify-center items-center min-h-screen">
-        <div className="text-white">Loading...</div>
+        <div className="text-white/50 text-sm tracking-wider uppercase mono">Loading...</div>
       </div>
     );
   }
@@ -220,44 +221,48 @@ const GalleryPage = () => {
   }
 
   const yearGroups = groupPostsByYear(data);
-  console.log('Year groups:', yearGroups[0]?.year); 
+  console.log('Year groups:', yearGroups[0]?.year);
 
   return (
     <div className="flex justify-end w-full"
-    style={{
-    }}
     >
       {/* Year Navigation Sidebar */}
       <div className="w-[25%] hidden md:block h-[100vh] "
-       style={{
-                        position: 'sticky',
-                        top: "clamp(0.5rem, 4vw, 240rem)",
-                        height: 'fit-content',
-                        alignSelf: 'flex-start'
-                    }}
+        style={{
+          position: 'sticky',
+          padding: "clamp(0.75rem, 0.75vw, 240rem)",
+          top: "clamp(0.5rem, 4vw, 240rem)",
+          height: 'fit-content',
+          alignSelf: 'flex-start'
+        }}
       >
         <div className="p-6">
-        {yearGroups.map((yearGroup) => (
+          {yearGroups.map((yearGroup) => (
             <div key={yearGroup.year} className="mb-8">
               <div className="text-white text-sm font-mono mb-4">
                 {yearGroup.year}
               </div>
-              
+
               {/* Horizontal Bars for Posts */}
               <div className="flex flex-col gap-10">
                 {yearGroup.posts.map((post) => {
+                  const isHover = hoveredPostId === post._id; // ✅ Use centralized hover state
                   const isActive = activePostId === post._id;
                   return (
                     <div
                       key={post._id}
                       onClick={() => scrollToPostAlternative(post._id)}
-                      className={`h-10 cursor-pointer transition-all duration-300 ${
-                        isActive 
-                          ? 'w-20 bg-white' 
-                          : 'w-16 bg-white/30 hover:bg-white/60 hover:w-18'
-                      }`}
-                      title={post.title}
-                    />
+                      onMouseEnter={() => setHoveredPostId(post._id)} // ✅ Update centralized state
+                      onMouseLeave={() => setHoveredPostId(null)} // ✅ Update centralized state
+                      className={`h-2 rounded-full  cursor-pointer ${isActive
+                        ? 'w-20 bg-[#FDE037]'
+                        : 'w-16 bg-white/60 hover:bg-white hover:w-18'
+                        }`}
+                    >
+                      <div className={`text-white/50 text-sm tracking-wider uppercase mono ${isHover ? 'block' : 'hidden'}`}>
+                        {post.title}
+                      </div>
+                    </div>
                   );
                 })}
               </div>
@@ -269,7 +274,7 @@ const GalleryPage = () => {
       {/* Main Content */}
       <div className="w-full md:w-[75%] md:ml-[25%]"
         style={{
-          padding: "0 clamp(0.5rem, 0.5vw, 240rem)",  
+          padding: "0 clamp(0.5rem, 0.5vw, 240rem)",
         }}
       >
         {data && data.length > 0 ? (
@@ -279,8 +284,8 @@ const GalleryPage = () => {
             }}
           >
             {data.map((post: Post) => (
-              <div 
-                key={post._id} 
+              <div
+                key={post._id}
                 ref={(el) => { postRefs.current[post._id] = el; }}
                 className="flex flex-col"
                 style={{
