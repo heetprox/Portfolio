@@ -78,10 +78,10 @@ const Footer = () => {
                 padding: "clamp(0.25rem, 0.25vw, 20rem) clamp(0.5rem, 0.5vw, 20rem)",
               }}
             >
-              {"v1.0.4"}
+              {"v1.0.5"}
             </div>
             <div className="flex text-white/50 mono scale-90 tracking-tight uppercase">
-              Last updated 2025-07-26
+              Last updated 2025-07-28
             </div>
 
           </div>
