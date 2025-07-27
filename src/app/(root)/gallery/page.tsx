@@ -16,7 +16,6 @@ const page = async () => {
   try {
     // Add timeout and retry logic
     const response = await axios.get<Post[]>(`${base_url}/data`, {
-      timeout: 30000, // 30 second timeout
       headers: {
         'Connection': 'keep-alive',
         'Accept': 'application/json',
@@ -26,17 +25,26 @@ const page = async () => {
     const data = response.data;
 
     return (
-      <div className="container mx-auto px-4 py-8">
-        <div className="max-w-6xl mx-auto">
-          <h1 className="text-4xl font-bold text-gray-800 mb-8 text-center">Gallery</h1>
+      <div className=" flex justify-end w-full"
+
+      >
+        <div className="w-[25%] h-[100vh] bg-[#111111]">
+        </div>
+
+        <div className="w-[75%]"
+          style={{
+            padding: "0 clamp(0.5rem, 0.5vw, 240rem)",
+          }}
+        >
+          <h1 className="text-4xl font-bold text-white mb-8 text-center">Gallery</h1>
 
           {/* Check if data array exists and has items */}
           {data && data.length > 0 ? (
             <div className="space-y-12">
               {data.map((post: Post) => (
-                <div key={post._id} className="bg-white rounded-xl shadow-lg p-6">
+                <div key={post._id} className=" rounded-xl shadow-lg p-6">
                   {/* Title */}
-                  <h2 className="text-2xl font-bold text-gray-800 mb-2">
+                  <h2 className="text-2xl font-bold text-white mb-2">
                     {post.title}
                   </h2>
 
@@ -46,12 +54,16 @@ const page = async () => {
 
 
                   {post.images && post.images.length > 0 && (
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 "
+                    style={{
+                        gap: "clamp(0.75rem, 0.75vw, 240rem)",
+                    }}
+                    >
                       {post.images.map((image: string, index: number) => (
-                        <div key={index} className="bg-gray-50 rounded-lg overflow-hidden hover:shadow-md transition-shadow duration-300">
+                        <div key={index} className="bg-gray-50  overflow-hidden hover:shadow-md transition-shadow duration-300">
                           <Image
-                          width={400}
-                          height={400}
+                            width={400}
+                            height={400}
                             src={image}
                             alt={`${post.title} - Image ${index + 1}`}
                             className="w-full h-auto object-cover"
