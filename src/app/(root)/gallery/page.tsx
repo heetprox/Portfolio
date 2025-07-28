@@ -278,7 +278,7 @@ const GalleryPage = () => {
                     <div className="flex items-center"
                       style={{
                         gap: "clamp(0.5rem, 0.5vw, 240rem)",
-                        height: "clamp(1rem, 1.5vw, 240rem)",
+                        height: "clamp(0.5rem, 0.5vw, 240rem)",
                       }}
                       key={post._id}
 
@@ -287,7 +287,7 @@ const GalleryPage = () => {
                         onClick={() => scrollToPostAlternative(post._id)}
                         onMouseEnter={() => setHoveredPostId(post._id)} // ✅ Update centralized state
                         onMouseLeave={() => setHoveredPostId(null)} // ✅ Update centralized state
-                        className={`h-1.5 rounded-full  cursor-pointer ${isActive
+                        className={`h-1 rounded-full  cursor-pointer ${isActive
                           ? 'w-12 xl:w-14 2xl:w-16 bg-[#FDE037]'
                           : 'w-8 xl:w-9 2xl:w-10 bg-white/60 transition-all duration-300 hover:bg-white hover:w-12 xl:hover:w-14 2xl:hover:w-16'
                           }`}
