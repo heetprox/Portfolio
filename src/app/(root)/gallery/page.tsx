@@ -10,8 +10,8 @@ const base_url = process.env.NEXT_PUBLIC_BASE_URL
 interface Post {
   _id: string;
   title: string;
-  startDate: string; // API returns ISO string, not Date object
-  endDate?: string;  // API returns ISO string, not Date object
+  startDate: string; 
+  endDate?: string;  
   images: string[];
 }
 interface PostWithDateInfo extends Post {
@@ -115,10 +115,8 @@ const GalleryPage = () => {
     debounceTime: 200
   });
 
-  // Debug log
   console.log('Current activePostId:', activePostId);
 
-  // Debug: Log refs when data changes
   useEffect(() => {
     if (data && data.length > 0) {
       console.log('Data loaded, current refs:', Object.keys(postRefs.current));
@@ -188,7 +186,6 @@ const GalleryPage = () => {
                 {yearGroup.year}
               </div>
 
-              {/* Horizontal Bars for Posts */}
               <div className="flex flex-col"
                 style={{
                   gap: "clamp(1rem, 1vw, 240rem)",
@@ -215,7 +212,7 @@ const GalleryPage = () => {
                         className={`h-1 rounded-full cursor-pointer ${isActive
                           ? 'w-12 xl:w-14 2xl:w-16 bg-[#FDE037]'
                           : 'w-8 xl:w-9 2xl:w-10 bg-white/60 transition-all duration-300 '
-                          } ${isHover ? 'hover:bg-white w-12 xl:w-14 2xl:w-16' : ''}`}
+                          } ${isHover ? 'bg-white w-12 xl:w-14 2xl:w-16' : ''}`}
                       >
                       </div>
                       <div className={`text-white w-full capitalize ${isHover ? 'block' : 'hidden'}`}>
