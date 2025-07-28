@@ -253,9 +253,9 @@ const GalleryPage = () => {
         <div className="">
           {yearGroups.map((yearGroup) => (
             <div key={yearGroup.year} className="mb-8"
-            style={{
-                          fontSize: "clamp(0.85rem, 0.9vw, 240rem)",
-                        }}
+              style={{
+                fontSize: "clamp(0.85rem, 0.9vw, 240rem)",
+              }}
             >
               <div className="text-white  "
                 style={{
@@ -295,7 +295,7 @@ const GalleryPage = () => {
 
                       </div>
                       <div className={`text-white w-full overflow-hidden capitalize  ${isHover ? 'block' : 'hidden'}`}
-                        
+
                       >
                         <span className="text-[#FDE037]">{post.month.toString().length === 1 ? "0" + post.month : post.day.toString().length === 1 ? "0" + post.day : post.day}{"."}{post.month.toString().length === 1 ? "0" + post.month : post.month}</span> {formatTitle(post.title)}
                       </div>
@@ -345,7 +345,16 @@ const GalleryPage = () => {
                 </div>
 
                 {post.images && post.images.length > 0 && (
-                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3"
+                  <div className={`grid
+                     ${post.images.length == 4 && "grid-cols-4"}
+                     ${post.images.length == 8 && "grid-cols-4"}
+                     ${post.images.length == 6 && "grid-cols-3"}
+                     ${post.images.length == 3 && "grid-cols-3"}
+                     ${post.images.length == 2 && "grid-cols-3"}
+                     ${post.images.length == 1 && "grid-cols-4"}
+
+
+                     `}
                     style={{
                       gap: "clamp(0.75rem, 0.75vw, 240rem)",
                     }}
@@ -357,7 +366,7 @@ const GalleryPage = () => {
                           height={400}
                           src={image}
                           alt={`${post.title} - Image ${index + 1}`}
-                          className="w-full h-auto object-cover"
+                          className="w-full h-auto aspect-[3/4] object-cover"
                           loading="lazy"
                         />
                       </div>
