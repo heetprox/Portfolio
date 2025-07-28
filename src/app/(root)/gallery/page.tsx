@@ -220,7 +220,7 @@ const GalleryPage = () => {
   if (loading) {
     return (
       <div className="flex justify-center items-center min-h-screen">
-        <div className="text-white/50 text-sm tracking-wider uppercase mono">Loading...</div>
+        <div className="text-white/50 text-sm tracking-wider fade-animation uppercase mono">Loading...</div>
       </div>
     );
   }
