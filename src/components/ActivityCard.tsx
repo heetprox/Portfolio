@@ -66,7 +66,7 @@ export default function ActivityCard({
   const activities = data?.data?.activities || initialData?.data.activities;
   if (!activities) {
     return (
-      <p className="font-mono opacity-80 leading-tight tracking-tight">
+      <p className="medium-font opacity-80 leading-tight tracking-tight">
         Loading activity <span className="dot dot-1">.</span>
         <span className="dot dot-2">.</span>
         <span className="dot dot-3">.</span>
