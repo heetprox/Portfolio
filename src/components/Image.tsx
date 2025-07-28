@@ -7,9 +7,7 @@ type OptimizedImageProps = ImageProps & {
   className?: string;
 };
 
-
-
-function OptimizedImage({ className, alt, ...props }: OptimizedImageProps) {
+function OptimizedImage({ className, alt, priority, loading, ...props }: OptimizedImageProps) {
   const [isLoading, setIsLoading] = React.useState(true);
 
   const handleImageLoad = () => {
@@ -17,11 +15,11 @@ function OptimizedImage({ className, alt, ...props }: OptimizedImageProps) {
   };
 
   return (
-    <div className="relative h-full w-full">
+    <div className="relative h-full w-full overflow-hidden">
       {isLoading && (
         <div
           className={cn(
-            "absolute h-full w-full inset-0 bg-neutral-800/80 animate-pulse rounded-full",
+            "absolute h-full w-full inset-0 bg-neutral-800/80 animate-pulse",
             className
           )}
         />
@@ -29,8 +27,14 @@ function OptimizedImage({ className, alt, ...props }: OptimizedImageProps) {
       <Image
         alt={alt || ""}
         {...props}
+        priority={priority}
+        loading={loading}
         onLoadingComplete={handleImageLoad}
-        className={cn(className)}
+        className={cn(
+          "transition-opacity duration-300",
+          isLoading ? "opacity-0" : "opacity-100",
+          className
+        )}
       />
     </div>
   );

@@ -1,8 +1,9 @@
 'use client';
 
 import React, { useRef, useEffect, useState } from 'react'
-import axios, { AxiosError } from 'axios'
-import Image from 'next/image';
+import VirtualizedImageGrid from '@/components/VirtualizedImageGrid';
+import { useOptimizedDataFetch } from '@/hooks/useOptimizedDataFetch';
+import { useScrollSpy } from '@/hooks/useScrollSpy';
 
 const base_url = process.env.NEXT_PUBLIC_BASE_URL
 
@@ -57,8 +58,8 @@ const formatDateRange = (startDate: string, endDate?: string) => {
   }
 };
 
-// Group posts by year
-const groupPostsByYear = (posts: Post[]): YearGroup[] => {
+const groupPostsByYear = (posts: Post[] | undefined): YearGroup[] => {
+  if (!posts) return [];
 
   const grouped = posts.reduce((acc, post) => {
     const startDate = new Date(post.startDate);
@@ -71,7 +72,6 @@ const groupPostsByYear = (posts: Post[]): YearGroup[] => {
       acc[year] = [];
     }
 
-    // Add the date info to the post
     const postWithDateInfo: PostWithDateInfo = {
       ...post,
       year,
@@ -93,88 +93,34 @@ const groupPostsByYear = (posts: Post[]): YearGroup[] => {
 };
 
 const GalleryPage = () => {
-  const [data, setData] = useState<Post[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
   const [activePostId, setActivePostId] = useState<string | null>(null);
   const [hoveredPostId, setHoveredPostId] = useState<string | null>(null); // ✅ Move hover state to top level
   const postRefs = useRef<Record<string, HTMLDivElement | null>>({});
 
+  // Use optimized data fetching hook
+  const { data, loading, error } = useOptimizedDataFetch<Post[]>({
+    url: `${base_url}/data`,
+    initialData: [],
+    sortFunction: (a: Post, b: Post) => {
+      const dateA = new Date(a.startDate);
+      const dateB = new Date(b.startDate);
+      return dateB.getTime() - dateA.getTime();
+    },
+    cacheKey: 'gallery-posts',
+    cacheDuration: 10 * 60 * 1000 // 10 minutes cache
+  });
+
+  const activeId = useScrollSpy<string>(postRefs.current, {
+    threshold: 0.2,
+    rootMargin: '0px 0px -70% 0px',
+    debounceTime: 200 // Increased debounce time for better performance
+  });
+  
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.get<Post[]>(`${base_url}/data`, {
-          headers: {
-            'Connection': 'keep-alive',
-            'Accept': 'application/json',
-          },
-        });
-
-        const sortedData = response.data?.sort((a: Post, b: Post) => {
-          const dateA = new Date(a.startDate);
-          const dateB = new Date(b.startDate);
-          return dateB.getTime() - dateA.getTime();
-        });
-
-        setData(sortedData || []);
-      } catch (error) {
-        let errorMessage = 'Unable to fetch data from the API. Please try again later.';
-
-        if (axios.isAxiosError(error)) {
-          const axiosError = error as AxiosError;
-          if (axiosError.code === 'ECONNRESET') {
-            errorMessage = 'Connection was reset by the server. This might be due to server overload or timeout.';
-          } else if (axiosError.code === 'ECONNREFUSED') {
-            errorMessage = 'Connection refused. Please check if the API server is running.';
-          } else if (axiosError.code === 'ENOTFOUND') {
-            errorMessage = 'API server not found. Please check the URL configuration.';
-          } else if (axiosError.response?.status) {
-            errorMessage = `Server responded with status ${axiosError.response.status}: ${axiosError.response.statusText}`;
-          }
-        }
-        setError(errorMessage);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchData();
-  }, []);
-
-  // Scroll spy effect to highlight active post
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollPosition = window.scrollY + window.innerHeight / 2;
-
-      let currentPost = null;
-      let minDistance = Infinity;
-
-      // Find the post closest to the center of the viewport
-      Object.entries(postRefs.current).forEach(([postId, element]) => {
-        if (element) {
-          const elementTop = element.offsetTop;
-          const elementBottom = elementTop + element.offsetHeight;
-          const elementCenter = elementTop + element.offsetHeight / 2;
-
-          const distance = Math.abs(scrollPosition - elementCenter);
-
-          if (distance < minDistance && elementTop <= scrollPosition && elementBottom >= scrollPosition - window.innerHeight / 2) {
-            minDistance = distance;
-            currentPost = postId;
-          }
-        }
-      });
-
-      if (currentPost !== activePostId) {
-        setActivePostId(currentPost);
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    handleScroll(); // Call once to set initial state
-
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, [data, activePostId]);
+    if (activeId !== null && activeId !== activePostId) {
+      setActivePostId(activeId);
+    }
+  }, [activeId]);
 
   const scrollToPostAlternative = (postId: string) => {
     const element = postRefs.current[postId];
@@ -272,9 +218,9 @@ const GalleryPage = () => {
                 }}
               >
                 {yearGroup.posts.map((post) => {
-                  const isHover = hoveredPostId === post._id; // ✅ Use centralized hover state
+                  const isHover = hoveredPostId === post._id; 
                   const isActive = activePostId === post._id;
-                  return (
+                  return (  
                     <div className="flex items-center"
                       style={{
                         gap: "clamp(0.5rem, 0.5vw, 240rem)",
@@ -285,8 +231,8 @@ const GalleryPage = () => {
                     >
                       <div
                         onClick={() => scrollToPostAlternative(post._id)}
-                        onMouseEnter={() => setHoveredPostId(post._id)} // ✅ Update centralized state
-                        onMouseLeave={() => setHoveredPostId(null)} // ✅ Update centralized state
+                        onMouseEnter={() => setHoveredPostId(post._id)} 
+                        onMouseLeave={() => setHoveredPostId(null)} 
                         className={`h-1 rounded-full  cursor-pointer ${isActive
                           ? 'w-12 xl:w-14 2xl:w-16 bg-[#FDE037]'
                           : 'w-8 xl:w-9 2xl:w-10 bg-white/60 transition-all duration-300 hover:bg-white hover:w-12 xl:hover:w-14 2xl:hover:w-16'
@@ -345,33 +291,19 @@ const GalleryPage = () => {
                 </div>
 
                 {post.images && post.images.length > 0 && (
-                  <div className={`grid
-                     ${post.images.length == 4 && "grid-cols-4"}
-                     ${post.images.length == 8 && "grid-cols-4"}
-                     ${post.images.length == 6 && "grid-cols-3"}
-                     ${post.images.length == 3 && "grid-cols-3"}
-                     ${post.images.length == 2 && "grid-cols-3"}
-                     ${post.images.length == 1 && "grid-cols-4"}
-
-
-                     `}
-                    style={{
-                      gap: "clamp(0.75rem, 0.75vw, 240rem)",
-                    }}
-                  >
-                    {post.images.map((image: string, index: number) => (
-                      <div key={index} className="overflow-hidden hover:shadow-md transition-shadow duration-300">
-                        <Image
-                          width={400}
-                          height={400}
-                          src={image}
-                          alt={`${post.title} - Image ${index + 1}`}
-                          className="w-full h-auto aspect-[3/4] object-cover"
-                          loading="lazy"
-                        />
-                      </div>
-                    ))}
-                  </div>
+                  <VirtualizedImageGrid 
+                    images={post.images}
+                    title={post.title}
+                    gridCols={`
+                      ${post.images.length == 4 && "grid-cols-4"}
+                      ${post.images.length == 8 && "grid-cols-4"}
+                      ${post.images.length == 6 && "grid-cols-3"}
+                      ${post.images.length == 3 && "grid-cols-3"}
+                      ${post.images.length == 2 && "grid-cols-3"}
+                      ${post.images.length == 1 && "grid-cols-4"}
+                    `}
+                    isFirstPost={post === data[0]}
+                  />
                 )}
 
                 {(!post.images || post.images.length === 0) && (
