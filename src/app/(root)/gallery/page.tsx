@@ -115,13 +115,10 @@ const GalleryPage = () => {
     debounceTime: 200
   });
 
-  console.log('Current activePostId:', activePostId);
 
   useEffect(() => {
     if (data && data.length > 0) {
-      console.log('Data loaded, current refs:', Object.keys(postRefs.current));
       setTimeout(() => {
-        console.log('Refs after timeout:', Object.keys(postRefs.current));
       }, 500);
     }
   }, [data]);

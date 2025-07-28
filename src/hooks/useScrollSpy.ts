@@ -31,7 +31,6 @@ export function useScrollSpy<T extends string>(
     debounceTimeout.current = setTimeout(() => {
       const visibleEntries = entries.filter(entry => entry.isIntersecting);
       
-      console.log('Intersection callback fired. Visible entries:', visibleEntries.length);
 
       if (visibleEntries.length > 0) {
         const sortedEntries = visibleEntries.sort(
@@ -41,10 +40,8 @@ export function useScrollSpy<T extends string>(
         const element = sortedEntries[0].target;
         const id = element.getAttribute('data-id') as T;
         
-        console.log('Element with highest intersection ratio:', element, 'ID:', id);
         
         if (id) {
-          console.log('Setting active ID to:', id);
           setActiveId(id);
         }
       } else {
@@ -60,14 +57,12 @@ export function useScrollSpy<T extends string>(
 
   // Setup observer
   useEffect(() => {
-    console.log('useScrollSpy: Setting up observer');
     
     if (observer.current) {
       observer.current.disconnect();
     }
 
     const observerOptions = { threshold, rootMargin };
-    console.log('Observer options:', observerOptions);
     
     const observerInstance = new IntersectionObserver(handleIntersection, observerOptions);
     observer.current = observerInstance;
@@ -75,21 +70,16 @@ export function useScrollSpy<T extends string>(
     // Wait a bit for elements to be ready, then observe them
     const timeoutId = setTimeout(() => {
       const currentRefs = elementsRef.current;
-      console.log('Available refs:', Object.keys(currentRefs));
       
-      let observedCount = 0;
       Object.entries(currentRefs).forEach(([id, element]) => {
         if (element) {
           (element as HTMLElement).setAttribute('data-id', id);
           observerInstance.observe(element as Element);
-          observedCount++;
-          console.log(`Now observing element: ${id}`);
         } else {
           console.log(`Element ${id} is null, skipping`);
         }
       });
       
-      console.log(`Total elements being observed: ${observedCount}`);
     }, 100);
 
     return () => {
