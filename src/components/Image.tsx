@@ -29,7 +29,7 @@ function OptimizedImage({ className, alt, priority, loading, ...props }: Optimiz
         {...props}
         priority={priority}
         loading={loading}
-        onLoadingComplete={handleImageLoad}
+        onLoad={handleImageLoad}
         className={cn(
           "transition-opacity duration-300",
           isLoading ? "opacity-0" : "opacity-100",

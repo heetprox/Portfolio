@@ -2,6 +2,13 @@
 
 import { useState, useEffect } from 'react';
 import axios, { AxiosError } from 'axios';
+interface Post {
+  _id: string;
+  title: string;
+  startDate: string; // API returns ISO string, not Date object
+  endDate?: string;  // API returns ISO string, not Date object
+  images: string[];
+}
 
 interface FetchOptions<T> {
   url: string;
@@ -9,9 +16,9 @@ interface FetchOptions<T> {
   headers?: Record<string, string>;
   onSuccess?: (data: T) => void;
   onError?: (error: string) => void;
-  sortFunction?: (a: any, b: any) => number;
+  sortFunction?: (a: Post, b: Post) => number;
   cacheKey?: string;
-  cacheDuration?: number; // in milliseconds
+  cacheDuration?: number; 
 }
 
 interface CachedData<T> {
@@ -114,7 +121,7 @@ export function useOptimizedDataFetch<T>({
     };
 
     fetchData();
-  }, [url, cacheKey, cacheDuration]);
+  }, [url, cacheKey, cacheDuration,onSuccess,onError, sortFunction,headers]);
 
   return { data, loading, error };
 }

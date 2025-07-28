@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useRef, useEffect, useState } from 'react';
+import React from 'react';
 import { useImageIntersection } from '@/hooks/useImageIntersection';
 import OptimizedImage from './Image';
 import { cn } from '@/lib/utils';
@@ -24,7 +24,6 @@ const VirtualizedImageGrid: React.FC<VirtualizedImageGridProps> = ({
     threshold: 0.1,
   });
 
-  // Only render images when they're close to viewport or have been viewed
   const shouldRenderImages = isIntersecting || hasIntersected;
 
   if (!images || images.length === 0) {

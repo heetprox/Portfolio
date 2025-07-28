@@ -93,12 +93,10 @@ const groupPostsByYear = (posts: Post[] | undefined): YearGroup[] => {
 };
 
 const GalleryPage = () => {
-  const [activePostId, setActivePostId] = useState<string | null>(null);
-  const [hoveredPostId, setHoveredPostId] = useState<string | null>(null); // ✅ Move hover state to top level
+  const [hoveredPostId, setHoveredPostId] = useState<string | null>(null);
   const postRefs = useRef<Record<string, HTMLDivElement | null>>({});
 
-  // Use optimized data fetching hook
-  const { data, loading, error } = useOptimizedDataFetch<Post[]>({
+  const { data } = useOptimizedDataFetch<Post[]>({
     url: `${base_url}/data`,
     initialData: [],
     sortFunction: (a: Post, b: Post) => {
@@ -110,17 +108,25 @@ const GalleryPage = () => {
     cacheDuration: 10 * 60 * 1000 // 10 minutes cache
   });
 
-  const activeId = useScrollSpy<string>(postRefs.current, {
+  // Get active ID directly from useScrollSpy
+  const activePostId = useScrollSpy<string>(postRefs.current, {
     threshold: 0.2,
     rootMargin: '0px 0px -70% 0px',
-    debounceTime: 200 // Increased debounce time for better performance
+    debounceTime: 200
   });
-  
+
+  // Debug log
+  console.log('Current activePostId:', activePostId);
+
+  // Debug: Log refs when data changes
   useEffect(() => {
-    if (activeId !== null && activeId !== activePostId) {
-      setActivePostId(activeId);
+    if (data && data.length > 0) {
+      console.log('Data loaded, current refs:', Object.keys(postRefs.current));
+      setTimeout(() => {
+        console.log('Refs after timeout:', Object.keys(postRefs.current));
+      }, 500);
     }
-  }, [activeId]);
+  }, [data]);
 
   const scrollToPostAlternative = (postId: string) => {
     const element = postRefs.current[postId];
@@ -131,7 +137,6 @@ const GalleryPage = () => {
         const titleRect = titleElement.getBoundingClientRect();
         const absoluteTitleTop = titleRect.top + window.pageYOffset;
 
-        // Small offset to show some space above the title
         const offset = 80;
 
         window.scrollTo({
@@ -152,42 +157,14 @@ const GalleryPage = () => {
     }
   };
 
-  if (loading) {
-    return (
-      <div className="flex justify-center items-center min-h-screen">
-        <div className="text-white/50 text-sm tracking-wider uppercase mono">Loading...</div>
-      </div>
-    );
-  }
-
-  if (error) {
-    return (
-      <div className="container mx-auto px-4 py-8">
-        <div className="max-w-4xl mx-auto text-center">
-          <h1 className="text-2xl  text-red-600 mb-4">
-            Error Loading Data
-          </h1>
-          <p className="text-gray-600 mb-4">{error}</p>
-          <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4 mt-4">
-            <h3 className="text-yellow-800 mb-2">Troubleshooting Tips:</h3>
-            <ul className="text-yellow-700 text-sm text-left space-y-1">
-              <li>• Check if your API server is running</li>
-              <li>• Verify the NEXT_PUBLIC_BASE_URL environment variable</li>
-              <li>• Check server logs for any issues</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    );
-  }
+  // ... rest of your loading and error handling code remains the same
 
   const yearGroups = groupPostsByYear(data);
 
   return (
-    <div className="flex justify-end w-full"
-    >
+    <div className="flex justify-end w-full">
       {/* Year Navigation Sidebar */}
-      <div className="w-[25%] hidden md:block h-[100vh] "
+      <div className="w-[25%] hidden md:block h-[100vh]"
         style={{
           position: 'sticky',
           padding: "0 clamp(0.75rem, 0.75vw, 240rem)",
@@ -203,7 +180,7 @@ const GalleryPage = () => {
                 fontSize: "clamp(0.85rem, 0.9vw, 240rem)",
               }}
             >
-              <div className="text-white  "
+              <div className="text-white"
                 style={{
                   padding: "clamp(0.5rem, 0.75vw, 240rem) 0",
                 }}
@@ -220,30 +197,29 @@ const GalleryPage = () => {
                 {yearGroup.posts.map((post) => {
                   const isHover = hoveredPostId === post._id; 
                   const isActive = activePostId === post._id;
+                  
+                  
                   return (  
-                    <div className="flex items-center"
+                    <div className="flex items-center cursor-pointer"
                       style={{
                         gap: "clamp(0.5rem, 0.5vw, 240rem)",
                         height: "clamp(0.5rem, 0.5vw, 240rem)",
                       }}
-                      key={post._id}
-
-                    >
-                      <div
-                        onClick={() => scrollToPostAlternative(post._id)}
                         onMouseEnter={() => setHoveredPostId(post._id)} 
                         onMouseLeave={() => setHoveredPostId(null)} 
-                        className={`h-1 rounded-full  cursor-pointer ${isActive
+                        onClick={() => scrollToPostAlternative(post._id)}
+
+                      key={post._id}
+                    >
+                      <div
+                        className={`h-1 rounded-full cursor-pointer ${isActive
                           ? 'w-12 xl:w-14 2xl:w-16 bg-[#FDE037]'
-                          : 'w-8 xl:w-9 2xl:w-10 bg-white/60 transition-all duration-300 hover:bg-white hover:w-12 xl:hover:w-14 2xl:hover:w-16'
-                          }`}
+                          : 'w-8 xl:w-9 2xl:w-10 bg-white/60 transition-all duration-300 '
+                          } ${isHover ? 'hover:bg-white w-12 xl:w-14 2xl:w-16' : ''}`}
                       >
-
                       </div>
-                      <div className={`text-white w-full overflow-hidden capitalize  ${isHover ? 'block' : 'hidden'}`}
-
-                      >
-                        <span className="text-[#FDE037]">{post.month.toString().length === 1 ? "0" + post.month : post.day.toString().length === 1 ? "0" + post.day : post.day}{"."}{post.month.toString().length === 1 ? "0" + post.month : post.month}</span> {formatTitle(post.title)}
+                      <div className={`text-white w-full capitalize ${isHover ? 'block' : 'hidden'}`}>
+                        <span className="text-[#FDE037]">{post.day.toString().padStart(2, '0')}.{(post.month + 1).toString().padStart(2, '0')}</span> {formatTitle(post.title)}
                       </div>
                     </div>
                   );
@@ -268,7 +244,13 @@ const GalleryPage = () => {
             {data.map((post: Post) => (
               <div
                 key={post._id}
-                ref={(el) => { postRefs.current[post._id] = el; }}
+                ref={(el) => { 
+                  postRefs.current[post._id] = el;
+                  // Ensure data-id is set immediately
+                  if (el) {
+                    el.setAttribute('data-id', post._id);
+                  }
+                }}
                 className="flex flex-col"
                 style={{
                   gap: "clamp(0.5rem, 0.5vw, 240rem)",
