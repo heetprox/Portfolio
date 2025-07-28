@@ -7,6 +7,8 @@ type OptimizedImageProps = ImageProps & {
   className?: string;
 };
 
+
+
 function OptimizedImage({ className, alt, ...props }: OptimizedImageProps) {
   const [isLoading, setIsLoading] = React.useState(true);
 
