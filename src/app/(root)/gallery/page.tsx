@@ -290,16 +290,17 @@ const GalleryPage = () => {
                         gap: "clamp(0.5rem, 0.5vw, 240rem)",
                         height: "clamp(0.5rem, 0.5vw, 240rem)",
                       }}
+                        onMouseEnter={() => setHoveredPostId(post._id)} 
+                        onMouseLeave={() => setHoveredPostId(null)} 
+                        onClick={() => scrollToPostAlternative(post._id)}
+
                       key={post._id}
                     >
                       <div
-                        onClick={() => scrollToPostAlternative(post._id)}
-                        onMouseEnter={() => setHoveredPostId(post._id)} 
-                        onMouseLeave={() => setHoveredPostId(null)} 
                         className={`h-1 rounded-full cursor-pointer ${isActive
                           ? 'w-12 xl:w-14 2xl:w-16 bg-[#FDE037]'
-                          : 'w-8 xl:w-9 2xl:w-10 bg-white/60 transition-all duration-300 hover:bg-white hover:w-12 xl:hover:w-14 2xl:hover:w-16'
-                          }`}
+                          : 'w-8 xl:w-9 2xl:w-10 bg-white/60 transition-all duration-300 '
+                          } ${isHover && 'bg-white w-12 xl:w-14 2xl:w-16'}`}
                       />
                       <div className={`text-white w-full overflow-hidden capitalize ${isHover ? 'block' : 'hidden'}`}>
                         <span className="text-[#FDE037]">
