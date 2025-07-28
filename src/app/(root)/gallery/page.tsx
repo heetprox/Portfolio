@@ -282,7 +282,7 @@ const GalleryPage = () => {
                   const isHover = hoveredPostId === post._id;
                   const isActive = activePostId === post._id;
                   return (
-                    <div className="flex items-center"
+                    <div className="flex items-center cursor-pointer"
                       style={{
                         gap: "clamp(0.5rem, 0.5vw, 240rem)",
                         height: "clamp(0.5rem, 0.5vw, 240rem)",
