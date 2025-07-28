@@ -147,9 +147,6 @@ const GalleryPage = () => {
     sortFunction: sortPostsByDate,
     cacheKey: 'gallery-posts',
     cacheDuration: 10 * 60 * 1000, // 10 minutes cache
-    onSuccess: (fetchedData) => {
-      console.log('Gallery data loaded successfully:', fetchedData.length, 'posts');
-    },
     onError: (errorMessage) => {
       console.error('Failed to load gallery data:', errorMessage);
     }
