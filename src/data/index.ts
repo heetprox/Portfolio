@@ -12,7 +12,7 @@ export interface TeamEntry {
     {
       company: "Repixelx Studio",
       period: "2025",
-      description: "In Studio i works on diffrent-diffrent freelance project like web-app, e-commerce, product landing page, brand website, etc."
+      description: "In Studio i worked on diffrent-diffrent freelance project like web-app, e-commerce, product landing page, brand website, etc."
     },
     {
       company: "Agrofix",
