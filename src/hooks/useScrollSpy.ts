@@ -21,8 +21,14 @@ export function useScrollSpy<T extends string>(
   const [activeId, setActiveId] = useState<T | null>(null);
   const debounceTimeout = useRef<NodeJS.Timeout | null>(null);
   const observer = useRef<IntersectionObserver | null>(null);
+  
+  // Use ref to store the latest elementRefs without causing re-renders
   const elementsRef = useRef<Record<T, HTMLElement | null>>(elementRefs);
+  
+  // Update the ref when elementRefs change, but don't trigger re-renders
+  elementsRef.current = elementRefs;
 
+  // Memoize the intersection handler with stable dependencies
   const handleIntersection = useCallback((entries: IntersectionObserverEntry[]) => {
     if (debounceTimeout.current) {
       clearTimeout(debounceTimeout.current);
@@ -31,56 +37,51 @@ export function useScrollSpy<T extends string>(
     debounceTimeout.current = setTimeout(() => {
       const visibleEntries = entries.filter(entry => entry.isIntersecting);
       
-
       if (visibleEntries.length > 0) {
-        const sortedEntries = visibleEntries.sort(
-          (a, b) => b.intersectionRatio - a.intersectionRatio
-        );
+        // Sort by intersection ratio and position
+        const sortedEntries = visibleEntries.sort((a, b) => {
+          // First sort by intersection ratio
+          const ratioDiff = b.intersectionRatio - a.intersectionRatio;
+          if (Math.abs(ratioDiff) > 0.1) return ratioDiff;
+          
+          // If ratios are similar, sort by position (topmost first)
+          return a.boundingClientRect.top - b.boundingClientRect.top;
+        });
 
         const element = sortedEntries[0].target;
         const id = element.getAttribute('data-id') as T;
         
-        
         if (id) {
-          setActiveId(id);
+          setActiveId(prev => prev === id ? prev : id); // Prevent unnecessary updates
         }
-      } else {
-        console.log('No visible entries, keeping current active ID');
       }
     }, debounceTime);
-  }, [debounceTime]);
+  }, [debounceTime]); // Only depend on debounceTime
 
-  // Update elements reference when refs change
+  // Setup observer effect - only re-run when options change
   useEffect(() => {
-    elementsRef.current = elementRefs;
-  });
-
-  // Setup observer
-  useEffect(() => {
-    
     if (observer.current) {
       observer.current.disconnect();
     }
 
     const observerOptions = { threshold, rootMargin };
-    
     const observerInstance = new IntersectionObserver(handleIntersection, observerOptions);
     observer.current = observerInstance;
 
-    // Wait a bit for elements to be ready, then observe them
-    const timeoutId = setTimeout(() => {
+    // Observe elements that exist
+    const observeElements = () => {
       const currentRefs = elementsRef.current;
       
       Object.entries(currentRefs).forEach(([id, element]) => {
         if (element) {
           (element as HTMLElement).setAttribute('data-id', id);
           observerInstance.observe(element as Element);
-        } else {
-          console.log(`Element ${id} is null, skipping`);
         }
       });
-      
-    }, 100);
+    };
+
+    // Small delay to ensure elements are mounted
+    const timeoutId = setTimeout(observeElements, 50);
 
     return () => {
       clearTimeout(timeoutId);
@@ -92,6 +93,19 @@ export function useScrollSpy<T extends string>(
       }
     };
   }, [threshold, rootMargin, handleIntersection]);
+
+  // Re-observe when elementRefs change (e.g., new elements added)
+  useEffect(() => {
+    if (observer.current) {
+      // Re-observe all current elements
+      Object.entries(elementRefs).forEach(([id, element]) => {
+        if (element) {
+          (element as HTMLElement).setAttribute('data-id', id);
+          observer.current!.observe(element as Element);
+        }
+      });
+    }
+  }, [Object.keys(elementRefs).length]); // Only re-run when the number of refs changes
 
   return activeId;
 }
