@@ -29,8 +29,8 @@ const Page = () => {
                     src={data[0].poster}
                     className='w-full h-auto object-cover'
                     alt="yo"
-                    width={1000}
-                    height={1000}
+                    width={700}
+                    height={700}
                 />
             </div>
 
@@ -196,8 +196,8 @@ const Page = () => {
                                 src={data.image}
                                 className=' h-auto w-full object-cover '
                                 alt="IF you are not seeing image this than you shouln't be."
-                                width={100}
-                                height={100}
+                                width={700}
+                                height={700}
                             />
                             <h3
                                 style={{
