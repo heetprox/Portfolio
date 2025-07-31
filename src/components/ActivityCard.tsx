@@ -75,7 +75,7 @@ export default function ActivityCard({
   }
 
   return (
-    <div className="flex flex-col "
+    <div className="flex flex-col medium-font "
       style={{
         gap: "clamp(0.5rem, 1vw, 240rem)",
       }}>
@@ -107,22 +107,24 @@ export default function ActivityCard({
                 }}
               />
             </div>
-            <div className="flex flex-col justify-between">
+            <div className="flex flex-col medium-font justify-between">
               
-              <h2 className="">{activity.name === "Spotify" && "Listening to "}
+              <h2 className="mono uppercase tracking-tight"
+              >{activity.name === "Spotify" && "Listening to "}
               {activity.name === "Code" && "Doing "}
                  {activity.name}</h2>
               <div className="flex flex-col"
                 style={{
                   fontSize: "clamp(0.8rem, 0.5vw, 240rem)",
                 }}
-              >
-                <p className="text-neutral-100/90 font-medium max-w-[250px] md:max-w-md truncate">
+              > 
+                <p className="text-neutral-100/90 mono uppercase  max-w-[250px] md:max-w-md truncate">
                   {activity.details}
                 </p>
-                <p className="text-neutral-100/70 font-medium">
+                <p className="text-neutral-100/70 mono uppercase ">
                   {activity.state}
                 </p>
+
               </div>
             </div>
           </div>

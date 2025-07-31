@@ -6,8 +6,8 @@
 }
 
 @font-face {
-    font-family: "InputMonoNarrow-Regular";
-    src: url("/fonts/InputMonoNarrow-Regular.ttf") format("truetype");
+    font-family: "InputMono-Medium";
+    src: url("/fonts/InputMono-Medium.ttf") format("truetype");
     font-style: normal;
 }
 
@@ -22,8 +22,8 @@
 }
 
 .mono {
-    font-family: "InputMonoNarrow-Regular", sans-serif;
-    letter-spacing: 0.08em;
+    font-family: "InputMono-Medium", sans-serif;
+    letter-spacing: 0.0125em;
 }
 
 .medium-font {
