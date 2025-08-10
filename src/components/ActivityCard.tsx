@@ -111,7 +111,7 @@ export default function ActivityCard({
               
               <h2 className="mono uppercase tracking-tight"
               >
-                {activity.name === "Spotify" ? `Listening...` : `${activity.name === "Code" ? `Doing ${activity.name}`: `${activity.name}`}`}
+                {activity.name === "Spotify" ? `Listening...` : `${activity.name === "Code" ? `Doing ${activity.name}...`: `${activity.name}`}`}
              
                  </h2>
               <div className="flex flex-col"
