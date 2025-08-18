@@ -18,7 +18,7 @@ const Navbar = () => {
         >
             <div className="flex w-[35%] md:w-1/2">
                 <Link href="/" className="text-left">
-                    <h1 className=" tracking-tight">Heet Vavadiya</h1>
+                    <h1 className=" tracking-tight">Heet Pro</h1>
                 </Link>
             </div>
             <div className="flex w-[65%] md:w-1/2 md:justify-start justify-between">
