@@ -204,7 +204,7 @@ const Page = () => {
                                     fontSize: "clamp(0.75rem, 0.75vw, 240rem)",
                                     paddingTop: "clamp(0.25rem, 0.75vw, 240rem)",
                                 }}
-                                className="uppercase mono tracking-wide font-medium text-white/50">
+                                className="uppercase mono tracking-wide font-medium text-white/60">
                                 {data.description}
                             </h3>
                         </div>

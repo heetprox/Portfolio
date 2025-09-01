@@ -16,7 +16,7 @@ const Navbar = () => {
                 gap: "clamp(1rem, 1vw, 240rem)",
             }}
         >
-            <div className="flex w-[35%] md:w-1/2">
+            <div className="flex relative z-[9999] w-[35%] md:w-1/2">
                 <Link href="/" className="text-left">
                     <h1 className=" tracking-tight">Heet Pro</h1>
                 </Link>

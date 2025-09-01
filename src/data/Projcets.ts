@@ -17,14 +17,15 @@ export const projectData: Project[] = [
   {
     id: 1,
     type: 'image',
-    title: 'Trackyou',
-    subtitle: 'Track your coding activity.',
+    title: 'Sunflower',
+    subtitle: 'find your music buddy.',
     link: '',
-    image: '/preview/trackyou.png',
+    image: '/preview/sunflower.jpg',
     textColor: '#333333',
-    locked: true,
-    logoImage: true
+    logoImage: true,
+    locked: true
   },
+
   {
     id: 2,
     type: 'video',
@@ -49,13 +50,12 @@ export const projectData: Project[] = [
   {
     id: 4,
     type: 'image',
-    title: 'Sunflower',
-    subtitle: 'find your music buddy.',
-    link: '',
-    image: '/preview/sunflower.jpg',
+    title: 'midway',
+    subtitle: 'Your cross-chain payment solution.',
+    link: '/midway',
+    image: '/preview/midway.png',
     textColor: '#333333',
-    logoImage: true,
-    locked: true
+    logoImage: true
   },
   {
     id: 5,
@@ -213,6 +213,53 @@ export const projectPageData: ProjectPageData[] = [
         image: "/projects/speedcast/7.png",
         description: "Rate-limiting is now easy with speedcast api."
       },
+
+    ]
+
+
+  },
+
+
+  {
+    link: 'midway',
+    title: 'midway',
+    poster: '/projects/midway/2.png',
+    subtitle: ' your cross-chain payment solution.',
+    description1: "Midway is a revolutionary cross-chain payment infrastructure that enables users to deposit funds on any supported blockchain and have them instantly available on the core network. Built on LayerZero's omnichain protocol, Midway eliminates the friction of managing multiple wallets and bridging funds across different chains.↗",
+    description2: "Midway is deployed on Optimism, Ethereum, Unichain, Zora, Base, World Chain, Polygon, and Ink Ethereum, with Optimism serving as the core network while the others act as client networks.↗",
+    role: ['Developer.'],
+    collaborators: ['Solo'],
+    techStack: ['OpenZeppelin', 'LayerZero V2','Wagmi','Viem', 'Hardhat v3', 'TypeScript'],
+    timeline: '2025',
+    rlinks: [
+      {
+        link: 'https://midway.heet.pro/',
+        text: 'MAIN WEBSITE',
+      },
+      {
+        link: 'https://github.com/heetprox/Midway-contracts',
+        text: 'Contracts',
+      },
+      {
+        link: 'https://github.com/heetprox/Midway',
+        text: 'Frontend',
+      },
+      
+    ],  
+    data: [
+      {
+        image: "/projects/midway/1.png",
+        description: 'get some test tokens from optimsim console.↗'
+      },
+      {
+        image: "/projects/midway/4.png",
+        description: "First Mint FUSD for your chosen network and after deposit your funds it will sent message in layer zero and add to your wallet in 1 min.."
+      },
+      {
+        image: "/projects/midway/5.png",
+        description: "this are the networks that are supported by midway."
+      },
+     
 
     ]
 
