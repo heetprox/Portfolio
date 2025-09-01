@@ -12,12 +12,12 @@ export interface TeamEntry {
     {
       company: "Repixelx Studio",
       period: "2025",
-      description: "In Studio i worked on diffrent-diffrent freelance project like web-app, e-commerce, product landing page, brand website, etc."
+      description: "Working as Senior Full-Stack Developer."
     },
     {
       company: "Agrofix",
       period: "2025",
-      description: "First full-time  hire as full-stack intern. i have to build diffrent-diffrent full-stack products & fix bugs."
+      description: "Worked as Full-stack intern. i leanred to build full-stack features & helped to fix bugs."
     },
    
   ];
