@@ -9,7 +9,7 @@ const socials = [
   }, 
   {
     name: "Twitter",
-    link: "https://www.twitter.com/BlueCopper_/",
+    link: "https://www.twitter.com/0xheet/",
   },
   {
     name: "Instagram",
