@@ -1,8 +1,8 @@
 
 
 @font-face {
-    font-family: 'NeueHaasUnicaPro-Medium';
-    src: url('/fonts/NeueHaasUnicaPro-Medium.ttf') format('truetype');
+    font-family: 'NeueHaasUnica-Bold';
+    src: url('/fonts/NeueHaasUnica-Bold.ttf') format('truetype');
 }
 
 @font-face {
@@ -27,5 +27,5 @@
 }
 
 .medium-font {
-    font-family: 'NeueHaasUnicaPro-Medium', sans-serif;
+    font-family: 'NeueHaasUnica-Bold', sans-serif;
 }
