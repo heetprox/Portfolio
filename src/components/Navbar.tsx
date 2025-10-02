@@ -17,13 +17,13 @@ const Navbar = () => {
             }}
         >
             <div className="flex relative z-[9999] w-[35%] md:w-1/2">
-                <Link href="/" className="text-left">
-                    <h1 className=" tracking-tight">Heet <span className='mono'>{"( 0xheet.eth )"}</span></h1>
+                <Link href="/" className="text-left items-center gap-2 flex">
+                    <div className="">{"0xheet"}</div>
                 </Link>
             </div>
             <div className="flex w-[65%] md:w-1/2 md:justify-start justify-between">
                 <div className="text-left w-[70%] md:w-[35%] items-center flex">
-                    <h2 className=" ">Developer</h2>
+                    <h2 className=" ">Web3 Developer</h2>
                 </div>
                 <div className="md:flex hidden text-left w-[55%]">
                     <p className=" ">Ahmedabad, In</p>
