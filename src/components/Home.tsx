@@ -1,12 +1,10 @@
 import React from 'react'
 import { LanyardResponse } from 'react-use-lanyard'
-import { teamData } from '@/data'
 import ActivityCard from './ActivityCard';
 import Link from 'next/link';
 import JsonLd from './JsonLd';
 
 const Home = ({ activity }: { activity: LanyardResponse | undefined }) => {
-  // Person structured data for Heet Vavadiya
   const personData = {
     "@context": "https://schema.org",
     "@type": "Person",
