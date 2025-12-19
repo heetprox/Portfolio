@@ -36,17 +36,7 @@ export const projectData: Project[] = [
     textColor: '#333333',
     logoImage: true
   },
-
-  {
-    id: 3,
-    type: 'image',
-    title: 'Paycrypt',
-    subtitle: 'your bank solution.',
-    link: '/paycrypt',
-    image: '/preview/paycrypt.svg',
-    textColor: '#333333',
-    logoImage: true
-  },
+ 
   {
     id: 4,
     type: 'image',
@@ -138,32 +128,6 @@ export const projectPageData: ProjectPageData[] = [
       {
         image: '/projects/vaayujewels/5.png',
       },
-    ]
-
-
-  },
-
-
-
-  {
-    link: 'paycrypt',
-    title: 'Paycrypt',
-    poster: '/projects/paycrypt/1.gif',
-    subtitle: 'YOUR PAYMENTS SOLUTION',
-    description1: "Paycrypt is a financial technology company, not a bank or a money services business. Certain services are provided by our licensed partners across the globe. By creating your account on Paycrypt, you agree to our terms and conditions, our partners's terms↗",
-    description2: "Join the future of global payments today. Start accepting crypto and fiat payments in minutes.",
-    role: ['Full Stack Developer.', 'Designer.'],
-    collaborators: ['Tanmay','Meyank'],
-    techStack: ['Next.js','Solidiy','Go', 'TypeScript'],
-    timeline: '2025',
-    rlinks: [
-      {
-        link: 'https://paycrypt.tech/',
-        text: 'MAIN WEBSITE',
-      },
-      
-    ],  
-    data: [
     ]
 
 

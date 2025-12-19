@@ -9,7 +9,7 @@ const Navbar = () => {
     const pathname = usePathname()
     const isHome = pathname === '/'
     return (
-        <nav className="sticky top-0 left-0 border-b bg-[#131313] border-white/10 w-full flex justify-between items-center  text-white z-[999]"
+        <nav className="sticky top-0 left-0 border-b bg-[#131313] border-white/20 w-full flex justify-between items-center  text-white z-[999]"
             style={{
                 fontSize: "clamp(0.85rem, 0.9vw, 240rem)",
                 padding: "clamp(0.75rem, 0.75vw, 240rem) clamp(0.75rem, 0.75vw, 240rem)",

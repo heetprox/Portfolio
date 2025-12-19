@@ -42,11 +42,10 @@ const Home = ({ activity }: { activity: LanyardResponse | undefined }) => {
   return (
     <div className="min-h-[40vh] bg-[#131313] text-white pt-16">
       <JsonLd data={personData} />
-      <div className="mx-auto px-4 py-10 flex "
+      <div className="mx-auto flex "
         style={{
           fontSize: "clamp(0.85rem, 0.9vw, 240rem)",
           padding: "clamp(0.75rem, 0.75vw, 240rem) clamp(0.75rem, 0.75vw, 240rem)",
-          marginTop: "clamp(0.75rem, 0.75vw, 240rem)",
         }}>
 
         <div className="w-full flex flex-col md:flex-row

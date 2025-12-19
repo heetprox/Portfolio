@@ -16,7 +16,6 @@ export const metadata: Metadata = {
     'Web Development',
     'JavaScript Developer',
     'Vaayu Jewels',
-    'Paycrypt',
     'SpeedCast API',
     'Kafinao'
   ],
