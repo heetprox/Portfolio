@@ -75,47 +75,7 @@ const Home = ({ activity }: { activity: LanyardResponse | undefined }) => {
             </div>
           </div>
 
-          <div className="md:w-[50%] w-full">
-            <div style={{ display: "flex", width: "100%",
-                fontSize: "clamp(0.75rem, 0.7vw, 240rem)",
-             }}>
-              <div style={{ width: "35%" }}>
-                <h3
-                  className="uppercase mono tracking-wide font-medium mb-4 text-white/40">TEAM</h3>
-              </div>
-
-              <div style={{ width: "65%" }}>
-                <h3
-                  className="uppercase mono tracking-wide font-medium mb-4 text-white/40">DESCRIPTION</h3>
-              </div>
-            </div>
-
-            <table
-              className="w-full border-separate"
-              cellPadding="0"
-              style={{
-                borderSpacing: '0 clamp(0.5rem, 1vw, 240rem)'
-              }}
-            >
-              <tbody>
-                {teamData.map((entry, index) => (
-                  <tr key={index} className=''>
-                    <td className="align-top w-[35%] leading-tight" style={{ verticalAlign: "top" }}>
-                      <h4>{entry.company}</h4>
-                      {entry.period && <p>{entry.period}</p>}
-                    </td>
-                    <td className="align-top w-[65%] " style={{ verticalAlign: "top" }}>
-                      {entry.superscripts ? (
-                        <p className='pb-2' dangerouslySetInnerHTML={{ __html: insertSuperscripts(entry.description, entry.superscripts) }} />
-                      ) : (
-                        <p className='leading-tight'>{entry.description}</p>
-                      )}
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
+         
         </div>
       </div>
     </div>

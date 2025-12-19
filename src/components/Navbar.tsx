@@ -18,16 +18,14 @@ const Navbar = () => {
         >
             <div className="flex relative z-[9999] w-[35%] md:w-1/2">
                 <Link href="/" className="text-left items-center gap-2 flex">
-                    <div className="">{"0xheet"}</div>
+                    <div className="">{"The Blue"}</div>
                 </Link>
             </div>
-            <div className="flex w-[65%] md:w-1/2 md:justify-start justify-between">
-                <div className="text-left w-[70%] md:w-[35%] items-center flex">
+            <div className="flex w-[65%] md:w-1/2 md:justify-end justify-end">
+                {/* <div className="text-left w-[70%] md:w-[35%] items-center flex">
                     <h2 className=" ">Web3 Developer</h2>
-                </div>
-                <div className="md:flex hidden text-left w-[55%]">
-                    <p className=" ">Ahmedabad, In</p>
-                </div>
+                </div> */}
+                
                 {!isHome && (
                     <Link href="/" className="flex text-white cursor-pointer w-[10%] justify-end">
                         <X className="text-white"/>
