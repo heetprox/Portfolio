@@ -60,6 +60,13 @@ const Home = ({ activity }: { activity: LanyardResponse | undefined }) => {
               gap: "clamp(1rem, 1vw, 240rem)",
             }}
           >
+
+            <h3
+              style={{
+                fontSize: "clamp(0.85rem, 0.9vw, 240rem)",
+
+              }}
+              className=" medium-font text-white font-medium mb-4">{"Full-Stack | Web3 "}</h3>
             <h3
               style={{
                 fontSize: "clamp(0.75rem, 0.7vw, 240rem)",
