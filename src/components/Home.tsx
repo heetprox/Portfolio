@@ -5,22 +5,6 @@ import ActivityCard from './ActivityCard';
 import Link from 'next/link';
 import JsonLd from './JsonLd';
 
-const insertSuperscripts = (description: string, superscripts?: { text: string; position: number }[]) => {
-  if (!superscripts || superscripts.length === 0) return description;
-
-  const sorted = [...superscripts].sort((a, b) => b.position - a.position);
-  let result = description;
-
-  sorted.forEach(sup => {
-    result =
-      result.substring(0, sup.position) +
-      `<span class="text-xs align-super">${sup.text}</span>` +
-      result.substring(sup.position);
-  });
-
-  return result;
-};
-
 const Home = ({ activity }: { activity: LanyardResponse | undefined }) => {
   // Person structured data for Heet Vavadiya
   const personData = {
