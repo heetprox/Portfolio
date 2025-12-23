@@ -9,11 +9,11 @@ const socials = [
   }, 
   {
     name: "Twitter",
-    link: "https://www.twitter.com/0xheet/",
+    link: "https://www.twitter.com/realbluex/",
   },
   {
     name: "Instagram",
-    link: "https://www.instagram.com/heetprox/",
+    link: "https://www.instagram.com/0xheet/",
   },
   {
     name: "LinkedIn",
@@ -21,7 +21,7 @@ const socials = [
   },
   {
     name: "Github",
-    link: "https://www.github.com/heetprox/",
+    link: "https://www.github.com/xrealblue/",
   },
 ]
 
